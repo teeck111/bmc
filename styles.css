@@ -158,7 +158,7 @@ body {
 
   /* Increase font size for "Big Mountain Club" */
   .navbar-brand {
-      font-size: 2rem !important;
+      font-size: 4vh !important;
       /* Adjust the font size as needed */
   }
 
@@ -196,9 +196,9 @@ body {
   }
 
   .checklist {
-      padding: 40px;
+      padding: 4vw;
       border-radius: 10px;
-      margin: 40px;
+      margin: 4vw;
   }
 
   .checklist ul {
@@ -210,7 +210,7 @@ body {
   .checklist ul li {
       position: relative;
       margin-bottom: 3vw;
-      font-size: 1.5vw;
+      font-size: 1.7vmax;
   }
 
   .checklist ul li input[type="checkbox"] {
