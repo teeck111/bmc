@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Big Mountain Club</title>
+    <link href="styles.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-relative">
+        <div class="container-fluid">
+            <button class="btn btn-primary me-3 btn-white" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Menu</button>
+            <a class="navbar-brand position-absolute start-50 translate-middle-x" href="#">Big Mountain Club</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="planning">
+        Planning
+    </div>
+
+    <div class="checklist">
+        <h2 class="steps">Planning and Executing a Trip Checklist:</h2>
+        <ul>
+            <li>
+                <input type="checkbox" id="check1">
+                <label for="check1">Look at the weather</label>
+            </li>
+            <li>
+                <input type="checkbox" id="check2">
+                <label for="check2">Research your route</label>
+                <ul class="sub-list">
+                    <li>
+                        <input type="checkbox" id="check3">
+                        <label for="check3">Check to see if permits are required</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check4">
+                        <label for="check4">Assess difficulty</label>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <input type="checkbox" id="check5">
+                <label for="check5">Look at the area's conditions (think snow coverage, snow quality, rock quality)</label>
+                <ul class="sub-list">
+                    <li>
+                        <input type="checkbox" id="check6">
+                        <label for="check6">Take note of hazards</label>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <input type="checkbox" id="check7">
+                <label for="check7">Choose a leave time and an expected return time (be generous with the return time, big
+                    trips usually take longer than you think they will)</label>
+            </li>
+            <li>
+                <input type="checkbox" id="check8">
+                <label for="check8">Choose a hard turn around point before leaving, this could be:</label>
+                <ul class="sub-list">
+                    <li>
+                        <input type="checkbox" id="check9">
+                        <label for="check9">A certain time</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check10">
+                        <label for="check10">A weather event such as snow or visible dark clouds</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check11">
+                        <label for="check11">A certain pain level if someone is injured</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check12">
+                        <label for="check12">A level of cognition or motor control (important when going into
+                            altitude)</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check13">
+                        <label for="check13">If you hit one of these points, TURN AROUND</label>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <input type="checkbox" id="check14">
+                <label for="check14">Pack gear (making a checklist is helpful)</label>
+                <ul class="sub-list">
+                    <li>
+                        <input type="checkbox" id="check15">
+                        <label for="check15">Pack extra food and water in case something goes wrong</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check16">
+                        <label for="check16">Pack a first aid kit if you can</label>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <input type="checkbox" id="check17">
+                <label for="check17">Drop a pin of where you will be going to someone you know BEFORE YOU LEAVE for the
+                    trip</label>
+                <ul class="sub-list">
+                    <li>
+                        <input type="checkbox" id="check18">
+                        <label for="check18">A lot of trailheads don’t have service so it won’t work if you try to drop a
+                            pin when you get there</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check19">
+                        <label for="check19">Give the person you gave the pin a time that, if hit, they should call search
+                            and rescue</label>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="resources">
+        Resources
+    </div>
+<div class="resources-section">
+    <h3>WEATHER RESOURCES:</h3>
+    <ul class="resource-list">
+        <li>
+            NOAA: 
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/Z6br_Ln67ts?si=GA6sWNCiiPwFCP9E"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </li>
+        <li>
+            Windy: <a href="https://www.windy.com/">Windy Website</a>
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/QXx21cnjyrA?si=e2pew5ZO_JCqzylq"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </li>
+    </ul>
+
+    <h3>BETA RESOURCES:</h3>
+    <ul class="resource-list">
+        <li>
+            Site with information on all the fourteeners: <a
+                href="https://www.14ers.com/php14ers/14ers.php">14ers.com</a>
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/Q6rZWfmhfto?si=29tYL_Re1coYubod"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </li>
+        <li>Site with information on most mountains you would want to climb or ski: <a
+                href="https://www.summitpost.org/">SummitPost</a></li>
+        <li>Great ski mountaineering site: <a href="https://www.frontrangeskimo.com/#home-section">Front Range Skimo</a>
+        <li>Cal Topo: <a href="https://caltopo.com/map.html#ll=38.80547,-98.39355&z=5&b=mbt">Cal Topo Site</a>
+            <div class="video-container" >
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/D7Wzx8kDzCQ?si=zlQnkuMp5yWi8a8r&amp;start=156"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </li>
+    </ul>
+
+    <h3>SAFETY:</h3>
+    <ul class="resource-list">
+        <li>Wilderness First Aid Class: <a
+                href="https://www.nols.edu/en/coursefinder/courses/wilderness-first-aid-WFA/">NOLS Wilderness First
+                Aid</a></li>
+        <li>Buying a first aid kit: <a href="https://www.rei.com/first-aid-kits">REI First Aid Kits</a></li>
+        <li>Building your own first aid kit: <a
+                href="https://www.alpineinstitute.com/articles/expert-tips/building-your-wilderness-first-aid-kit/">Alpine
+                Institute Guide</a></li>
+    </ul>
+</div>
+
+    <!-- Off-canvas menu -->
+    <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+        id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Menu</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <!-- Navigation links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Planning</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="join.html">Join</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-light pt-4">
+        <div class="container">
+            <div class="row">
+                <!-- Club Info -->
+                <div class="col-md-6 mb-3">
+                    <h5 class="mb-3">Big Mountain Club</h5>
+                    <p>Bringing adventure-seekers together for epic trips, challenges, and experiences. Join us to explore,
+                        grow, and make lifelong connections.</p>
+                </div>
+    
+                <!-- Social Media Links -->
+                <div class="col-md-6 text-md-end mb-3">
+                    <a href="https://www.instagram.com/bigmountainclub/" target="_blank" class="text-light me-3">
+                        <i class="fab fa-instagram"></i> Instagram
+                    </a>
+                </div>
+            </div>
+    
+            <hr class="border-secondary">
+    
+            <!-- Footer Bottom -->
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2024 Big Mountain Club. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">Website by Tyler Kivelson.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
