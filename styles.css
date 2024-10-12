@@ -158,12 +158,12 @@ body {
 
   /* Increase font size for "Big Mountain Club" */
   .navbar-brand {
-      font-size: 4vh !important;
+      font-size: 3.2vw !important;
       /* Adjust the font size as needed */
   }
 
   .planning {
-    padding-top: 5vw;
+    padding-top: 4vw;
     padding-left: 9vw;
     font-family: 'Sora', sans-serif;
     font-weight: bold !important;
@@ -196,7 +196,7 @@ body {
   }
 
   .checklist {
-      padding: 4vw;
+      padding: 3vw;
       border-radius: 10px;
       margin: 4vw;
   }
@@ -343,4 +343,10 @@ body {
   .join{
     font-family: 'Sora', sans-serif;
     font-weight: bold !important;
+  }
+
+  .map {
+    padding-top: 4vmax;
+    padding-left: 10vmax;
+    padding-right: 10vmax;
   }
