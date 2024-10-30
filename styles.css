@@ -350,3 +350,67 @@ body {
     padding-left: 10vmax;
     padding-right: 10vmax;
   }
+
+  .scattered-words {
+      position: relative;
+      height: 150px;
+      /* Adjust height as needed */
+      margin: 70px 0;
+      /* Space between Explore More and Our Members */
+      padding-left: 20vw !important;
+      padding-right: 2vw !important;
+
+  }
+
+  .scattered-word {
+      position: absolute;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 3.3vw;
+      color: whitesmoke !important;
+      opacity: 0.95;
+      transition: transform 0.2s ease;
+  }
+
+  .scattered-word:hover {
+      transform: scale(1.2);
+      opacity: 1;
+  }
+
+  /* Positions for each word */
+
+  /* couloir */
+  .scattered-word:nth-child(1) {
+      top: 16vw;
+      left: 20vw;
+  }
+
+ /* bikepacking */
+  .scattered-word:nth-child(2) {
+      top: 25vw;
+      right: 20vw;
+  }
+
+  /* trail running */
+  .scattered-word:nth-child(3) {
+      bottom: 10vw;
+      left: 9vw;
+   
+  }
+
+  /* mountaineering */
+  .scattered-word:nth-child(4) {
+      top: 5vw;
+      right: 8vw;
+  }
+  /* climbing */
+  .scattered-word:nth-child(5) {
+      top: 30vw;
+      left: 15vw;
+
+  }
+
+  /* skiing */
+  .scattered-word:nth-child(6) {
+      top: 13vw;
+      right: 45vw;
+  }
