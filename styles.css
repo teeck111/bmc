@@ -150,7 +150,7 @@ body {
       color: whitesmoke;
       /* Text color */
       flex: 1;
-      padding-top: 20vw;
+      padding-top: 50vw;
       padding-bottom: 5vw;
 
       /* Allow the text to take up remaining space */
@@ -386,8 +386,8 @@ body {
 
   /* couloir */
   .scattered-word:nth-child(1) {
-      top: 16vw;
-      left: 20vw;
+      top: 18vw;
+      left: 18vw;
   }
 
  /* bikepacking */
@@ -411,12 +411,33 @@ body {
   /* climbing */
   .scattered-word:nth-child(5) {
       top: 30vw;
-      left: 15vw;
+      left: 27vw;
 
   }
 
   /* skiing */
   .scattered-word:nth-child(6) {
-      top: 13vw;
-      right: 45vw;
+      top: 12vw;
+      right: 44vw;
   } 
+
+  .scattered-word:nth-child(7) {
+      top: 47vw;
+      right: 60vw;
+  }
+
+  .scattered-word:nth-child(8) {
+      top: 42vw;
+      right: 10vw;
+  }
+
+  .scattered-word:nth-child(9) {
+      top: 62vw;
+      right: 65vw;
+  }
+
+   /* bikepacking */
+   .scattered-word:nth-child(10) {
+       top: 55vw;
+       right: 29vw;
+   }
