@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Upload Test - BMC</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-storage-compat.js"></script>
+    <style>
+        body { padding: 20px; }
+        .status { margin: 10px 0; }
+        .photo-preview { max-width: 200px; max-height: 200px; margin: 10px; border: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Firebase Storage Photo Upload Test</h1>
+        
+        <div class="card">
+            <div class="card-body">
+                <h5>1. Storage Connection Test</h5>
+                <div id="connection-status" class="status">Testing...</div>
+            </div>
+        </div>
+
+        <div class="card mt-3">
+            <div class="card-body">
+                <h5>2. Photo Upload Test</h5>
+                <input type="file" id="photoInput" class="form-control mb-3" accept="image/*" multiple>
+                <button id="uploadBtn" class="btn btn-primary">Upload Photos</button>
+                <div id="upload-status" class="status"></div>
+                <div id="progress-container" class="mt-3"></div>
+            </div>
+        </div>
+
+        <div class="card mt-3">
+            <div class="card-body">
+                <h5>3. Uploaded Photos</h5>
+                <div id="photo-gallery" class="d-flex flex-wrap"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="firebase-config.js?v=4"></script>
+    <script>
+        let uploadedPhotos = [];
+
+        // Test Firebase Storage connection
+        function testConnection() {
+            const statusDiv = document.getElementById('connection-status');
+            
+            try {
+                if (typeof firebase === 'undefined') {
+                    statusDiv.innerHTML = '<span class="text-danger">❌ Firebase SDK not loaded</span>';
+                    return;
+                }
+
+                if (!firebase.apps.length) {
+                    statusDiv.innerHTML = '<span class="text-danger">❌ Firebase not initialized</span>';
+                    return;
+                }
+
+                const storage = firebase.storage();
+                if (!storage) {
+                    statusDiv.innerHTML = '<span class="text-danger">❌ Firebase Storage not available</span>';
+                    return;
+                }
+
+                statusDiv.innerHTML = '<span class="text-success">✅ Firebase Storage connected successfully</span>';
+                
+                // Enable upload functionality
+                document.getElementById('uploadBtn').addEventListener('click', uploadPhotos);
+                
+            } catch (error) {
+                statusDiv.innerHTML = `<span class="text-danger">❌ Error: ${error.message}</span>`;
+            }
+        }
+
+        // Upload photos to Firebase Storage
+        async function uploadPhotos() {
+            const fileInput = document.getElementById('photoInput');
+            const files = fileInput.files;
+            const statusDiv = document.getElementById('upload-status');
+            const progressContainer = document.getElementById('progress-container');
+
+            if (files.length === 0) {
+                statusDiv.innerHTML = '<span class="text-warning">Please select photos to upload</span>';
+                return;
+            }
+
+            const dbMgr = window.dbManager || (typeof dbManager !== 'undefined' ? dbManager : null);
+            if (!dbMgr) {
+                statusDiv.innerHTML = '<span class="text-danger">Database manager not available</span>';
+                return;
+            }
+
+            // Show progress
+            progressContainer.innerHTML = `
+                <div class="progress">
+                    <div id="uploadProgress" class="progress-bar" style="width: 0%"></div>
+                </div>
+                <div class="mt-2">Uploading 0 of ${files.length} files...</div>
+            `;
+
+            try {
+                statusDiv.innerHTML = '<span class="text-info">Uploading photos...</span>';
+                
+                // Upload with progress tracking
+                const tempTripId = `test-${Date.now()}`;
+                const uploadedUrls = await dbMgr.uploadPhotos(files, tempTripId, updateProgress);
+
+                if (uploadedUrls.length > 0) {
+                    statusDiv.innerHTML = `<span class="text-success">✅ Successfully uploaded ${uploadedUrls.length} photos</span>`;
+                    uploadedPhotos.push(...uploadedUrls);
+                    displayPhotos();
+                } else {
+                    statusDiv.innerHTML = '<span class="text-danger">❌ No photos were uploaded successfully</span>';
+                }
+
+                progressContainer.innerHTML = '';
+
+            } catch (error) {
+                console.error('Upload error:', error);
+                statusDiv.innerHTML = `<span class="text-danger">❌ Upload failed: ${error.message}</span>`;
+                progressContainer.innerHTML = '';
+            }
+        }
+
+        // Update progress bar
+        function updateProgress(completed, total, success) {
+            const progressBar = document.getElementById('uploadProgress');
+            const progressText = document.querySelector('#progress-container .mt-2');
+            
+            if (progressBar) {
+                const percentage = (completed / total) * 100;
+                progressBar.style.width = `${percentage}%`;
+            }
+            
+            if (progressText) {
+                progressText.textContent = `Uploading ${completed} of ${total} files...`;
+            }
+        }
+
+        // Display uploaded photos
+        function displayPhotos() {
+            const gallery = document.getElementById('photo-gallery');
+            
+            gallery.innerHTML = uploadedPhotos.map((url, index) => `
+                <div class="m-2">
+                    <img src="${url}" class="photo-preview" alt="Uploaded photo ${index + 1}">
+                    <div class="small text-center">Photo ${index + 1}</div>
+                </div>
+            `).join('');
+        }
+
+        // Initialize when page loads
+        window.addEventListener('load', () => {
+            // Wait for Firebase to initialize
+            setTimeout(testConnection, 1000);
+        });
+    </script>
+</body>
+</html>

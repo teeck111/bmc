@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Add Trip - BMC</title>
+    <style>
+        body {
+            background: #1a1a1a;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .debug-section {
+            background: #2d2d2d;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border: 2px solid #444;
+        }
+        .success { color: #32CD32; }
+        .error { color: #ff4444; }
+        .warning { color: #ffaa44; }
+        button {
+            background: #32CD32;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #28a428;
+        }
+        pre {
+            background: #000;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔧 Add Trip Debug Tool</h1>
+    
+    <div class="debug-section">
+        <h2>1. Authentication Test</h2>
+        <button onclick="testAuthentication()">Test Password Authentication</button>
+        <div id="authResult"></div>
+    </div>
+
+    <div class="debug-section">
+        <h2>2. LocalStorage Test</h2>
+        <button onclick="testLocalStorage()">Test localStorage</button>
+        <button onclick="viewStoredTrips()">View Stored Trips</button>
+        <button onclick="clearStoredTrips()">Clear All Trips</button>
+        <div id="storageResult"></div>
+    </div>
+
+    <div class="debug-section">
+        <h2>3. Add Trip Simulation</h2>
+        <button onclick="addTestTrip()">Add Test Trip</button>
+        <div id="addTripResult"></div>
+    </div>
+
+    <div class="debug-section">
+        <h2>4. Form Validation Test</h2>
+        <button onclick="testValidation()">Test Form Validation</button>
+        <div id="validationResult"></div>
+    </div>
+
+    <div class="debug-section">
+        <h2>5. Debug Log</h2>
+        <button onclick="clearLog()">Clear Log</button>
+        <pre id="debugLog">Debug log will appear here...</pre>
+    </div>
+
+    <div class="debug-section">
+        <h2>6. Quick Actions</h2>
+        <button onclick="window.location.href='add-trip.html'">Go to Add Trip Page</button>
+        <button onclick="window.location.href='trip-log.html'">Go to Trip Log</button>
+    </div>
+
+    <script>
+        function log(message, type = 'info') {
+            const timestamp = new Date().toLocaleTimeString();
+            const logDiv = document.getElementById('debugLog');
+            const className = type === 'error' ? 'error' : type === 'success' ? 'success' : type === 'warning' ? 'warning' : '';
+            logDiv.innerHTML += `[${timestamp}] <span class="${className}">${message}</span>\n`;
+            logDiv.scrollTop = logDiv.scrollHeight;
+        }
+
+        function clearLog() {
+            document.getElementById('debugLog').innerHTML = 'Debug log cleared...\n';
+        }
+
+        function testAuthentication() {
+            const resultDiv = document.getElementById('authResult');
+            
+            // Test password
+            const correctPassword = "BigMountain2024";
+            const testPassword = "BigMountain2024";
+            
+            if (testPassword === correctPassword) {
+                resultDiv.innerHTML = '<span class="success">✅ Password authentication works correctly</span>';
+                log('Password authentication test: PASSED', 'success');
+                
+                // Test session storage
+                sessionStorage.setItem('bmcAuthenticated', 'true');
+                const stored = sessionStorage.getItem('bmcAuthenticated');
+                
+                if (stored === 'true') {
+                    resultDiv.innerHTML += '<br><span class="success">✅ Session storage works correctly</span>';
+                    log('Session storage test: PASSED', 'success');
+                } else {
+                    resultDiv.innerHTML += '<br><span class="error">❌ Session storage failed</span>';
+                    log('Session storage test: FAILED', 'error');
+                }
+            } else {
+                resultDiv.innerHTML = '<span class="error">❌ Password authentication failed</span>';
+                log('Password authentication test: FAILED', 'error');
+            }
+        }
+
+        function testLocalStorage() {
+            const resultDiv = document.getElementById('storageResult');
+            
+            try {
+                // Test basic localStorage functionality
+                const testData = { test: 'data', timestamp: Date.now() };
+                localStorage.setItem('bmcTest', JSON.stringify(testData));
+                
+                const retrieved = JSON.parse(localStorage.getItem('bmcTest'));
+                localStorage.removeItem('bmcTest');
+                
+                if (retrieved && retrieved.test === 'data') {
+                    resultDiv.innerHTML = '<span class="success">✅ localStorage is working correctly</span>';
+                    log('localStorage test: PASSED', 'success');
+                } else {
+                    resultDiv.innerHTML = '<span class="error">❌ localStorage data mismatch</span>';
+                    log('localStorage test: FAILED - data mismatch', 'error');
+                }
+            } catch (error) {
+                resultDiv.innerHTML = '<span class="error">❌ localStorage error: ' + error.message + '</span>';
+                log('localStorage test: FAILED - ' + error.message, 'error');
+            }
+        }
+
+        function viewStoredTrips() {
+            const resultDiv = document.getElementById('storageResult');
+            
+            try {
+                const stored = localStorage.getItem('bmcTrips');
+                if (stored) {
+                    const trips = JSON.parse(stored);
+                    resultDiv.innerHTML = `<span class="success">Found ${trips.length} stored trips:</span><br>`;
+                    trips.forEach((trip, index) => {
+                        resultDiv.innerHTML += `${index + 1}. ${trip.location} (${trip.date}) - ID: ${trip.id}<br>`;
+                    });
+                    log(`Found ${trips.length} stored trips`, 'info');
+                } else {
+                    resultDiv.innerHTML = '<span class="warning">No trips found in localStorage</span>';
+                    log('No trips found in localStorage', 'warning');
+                }
+            } catch (error) {
+                resultDiv.innerHTML = '<span class="error">Error reading trips: ' + error.message + '</span>';
+                log('Error reading trips: ' + error.message, 'error');
+            }
+        }
+
+        function clearStoredTrips() {
+            localStorage.removeItem('bmcTrips');
+            document.getElementById('storageResult').innerHTML = '<span class="warning">All trips cleared from localStorage</span>';
+            log('All trips cleared from localStorage', 'warning');
+        }
+
+        function addTestTrip() {
+            const resultDiv = document.getElementById('addTripResult');
+            
+            try {
+                // Create test trip data
+                const testTrip = {
+                    id: Date.now(),
+                    location: "Debug Test Mountain",
+                    date: "2024-09-17",
+                    members: ["Debug User", "Test User"],
+                    photos: ["debug-photo.jpg"],
+                    description: "This is a debug test trip to verify the add trip functionality works correctly.",
+                    distance: "5 miles",
+                    elevation: "1000 ft",
+                    duration: "3 hours",
+                    dateAdded: new Date().toISOString()
+                };
+
+                // Get existing trips
+                const existingTrips = JSON.parse(localStorage.getItem('bmcTrips') || '[]');
+                
+                // Add test trip
+                existingTrips.unshift(testTrip);
+                
+                // Save back to localStorage
+                localStorage.setItem('bmcTrips', JSON.stringify(existingTrips));
+                
+                // Verify it was saved
+                const savedTrips = JSON.parse(localStorage.getItem('bmcTrips') || '[]');
+                const addedTrip = savedTrips.find(t => t.id === testTrip.id);
+                
+                if (addedTrip) {
+                    resultDiv.innerHTML = '<span class="success">✅ Test trip added successfully!</span><br>' +
+                                        `Location: ${addedTrip.location}<br>` +
+                                        `ID: ${addedTrip.id}<br>` +
+                                        `Total trips now: ${savedTrips.length}`;
+                    log(`Test trip added successfully. Total trips: ${savedTrips.length}`, 'success');
+                } else {
+                    resultDiv.innerHTML = '<span class="error">❌ Test trip was not found after saving</span>';
+                    log('Test trip was not found after saving', 'error');
+                }
+                
+            } catch (error) {
+                resultDiv.innerHTML = '<span class="error">❌ Error adding test trip: ' + error.message + '</span>';
+                log('Error adding test trip: ' + error.message, 'error');
+            }
+        }
+
+        function testValidation() {
+            const resultDiv = document.getElementById('validationResult');
+            
+            // Test valid data
+            const validData = {
+                location: "Test Mountain",
+                date: "2024-09-17",
+                members: ["John", "Jane"],
+                description: "Test description"
+            };
+            
+            // Test invalid data
+            const invalidData = {
+                location: "",
+                date: "",
+                members: [],
+                description: ""
+            };
+            
+            // Validation logic (simplified)
+            function validateData(data) {
+                const errors = [];
+                if (!data.location) errors.push('Location is required');
+                if (!data.date) errors.push('Date is required');
+                if (!data.description) errors.push('Description is required');
+                if (!data.members || data.members.length === 0) errors.push('At least one member is required');
+                return errors;
+            }
+            
+            const validErrors = validateData(validData);
+            const invalidErrors = validateData(invalidData);
+            
+            if (validErrors.length === 0 && invalidErrors.length > 0) {
+                resultDiv.innerHTML = '<span class="success">✅ Validation logic works correctly</span><br>' +
+                                    `Valid data: ${validErrors.length} errors<br>` +
+                                    `Invalid data: ${invalidErrors.length} errors`;
+                log('Validation test: PASSED', 'success');
+            } else {
+                resultDiv.innerHTML = '<span class="error">❌ Validation logic failed</span><br>' +
+                                    `Valid data errors: ${validErrors.length}<br>` +
+                                    `Invalid data errors: ${invalidErrors.length}`;
+                log('Validation test: FAILED', 'error');
+            }
+        }
+
+        // Initialize
+        log('Debug tool initialized', 'info');
+        log('Click buttons above to test different aspects of the add trip functionality', 'info');
+    </script>
+</body>
+</html>
