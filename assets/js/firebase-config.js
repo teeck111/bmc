@@ -5,7 +5,7 @@ const firebaseConfig = {
   apiKey: "AIzaSyDjH30TDpQt8R5gm9vIm59HtfVnBGTmNtY",
   authDomain: "bigmountainclubwebsite.firebaseapp.com",
   projectId: "bigmountainclubwebsite",
-  storageBucket: "bigmountainclubwebsite.firebasestorage.app",
+  storageBucket: "bigmountainclubwebsite.appspot.com",
   messagingSenderId: "945172997417",
   appId: "1:945172997417:web:52437b0f24c3e186c8c338",
   measurementId: "G-7Q0EYRP98D"
