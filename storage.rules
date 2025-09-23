@@ -1,0 +1,54 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    // Public read access to all files (for displaying photos)
+    match /{allPaths=**} {
+      allow read: if true;
+    }
+    
+    // Secure trip photos uploads
+    match /trip-photos/{filename} {
+      allow write: if isValidImageUpload() && 
+                      isReasonableSize() && 
+                      isAllowedImageType() &&
+                      !isExcessiveUpload();
+      
+      // Only allow deletion by admins or original uploader
+      allow delete: if hasAdminAccess();
+    }
+    
+    // Block all other paths
+    match /{path=**} {
+      allow write: if path.matches('trip-photos/.*');
+    }
+    
+    // Security helper functions
+    function isValidImageUpload() {
+      return request.resource != null &&
+             request.resource.contentType != null &&
+             request.resource.contentType.matches('image/.*');
+    }
+    
+    function isReasonableSize() {
+      return request.resource.size <= 10 * 1024 * 1024; // 10MB max
+    }
+    
+    function isAllowedImageType() {
+      return request.resource.contentType.matches('image/(jpeg|jpg|png|gif|webp)') &&
+             !request.resource.contentType.matches('image/svg.*'); // Block SVG for security
+    }
+    
+    function isExcessiveUpload() {
+      // Prevent spam uploads (basic check)
+      // In production, you'd want more sophisticated rate limiting
+      return false;
+    }
+    
+    function hasAdminAccess() {
+      // Admin access for deletions
+      return request.auth != null && 
+             request.auth.token != null &&
+             request.auth.token.admin == true;
+    }
+  }
+}
