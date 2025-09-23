@@ -38,7 +38,7 @@ try {
 class DatabaseManager {
     constructor() {
         this.useFirebase = db !== null;
-        this.tripsCollection = 'bmc-trips';
+        this.tripsCollection = 'trips';
     }
 
     // Get all trips
@@ -46,7 +46,6 @@ class DatabaseManager {
         if (this.useFirebase) {
             try {
                 const snapshot = await db.collection(this.tripsCollection)
-                    .orderBy('dateAdded', 'desc')
                     .get();
                 
                 const trips = [];
@@ -317,7 +316,7 @@ class DatabaseManager {
                 location: "Mt Holy Cross",
                 date: "2024-08-15",
                 members: ["Tyler", "Brendan", "Sarah", "Mike"],
-                photos: ["imgs/hc_summit.jpg", "imgs/hc_group.JPG", "imgs/hc_trees.JPG"],
+                photos: ["assets/images/hc_summit.jpg", "assets/images/hc_group.JPG", "assets/images/hc_trees.JPG"],
                 description: "Epic 4-hour ridge scramble to one of Colorado's most challenging 14ers. Perfect weather and incredible views!",
                 distance: "11 miles",
                 elevation: "5,600 ft gain",
@@ -329,7 +328,7 @@ class DatabaseManager {
                 location: "Gore Range Backpacking",
                 date: "2024-07-22",
                 members: ["Alex", "Jordan", "Casey", "Morgan", "Sam"],
-                photos: ["imgs/gorebackpacking.jpeg"],
+                photos: ["assets/images/gorebackpacking.jpeg"],
                 description: "3-day backpacking adventure in the Gore Range with multiple summit attempts. Amazing alpine lakes and ridge walks.",
                 distance: "25 miles",
                 elevation: "4,200 ft gain",
@@ -341,7 +340,7 @@ class DatabaseManager {
                 location: "Longs Peak",
                 date: "2024-09-03",
                 members: ["Tyler", "Emma", "Josh", "Riley"],
-                photos: ["imgs/longs-summit.JPG"],
+                photos: ["assets/images/longs-summit.JPG"],
                 description: "Classic Colorado 14er via the Keyhole Route. Started at 3 AM for sunrise summit push!",
                 distance: "14.5 miles",
                 elevation: "5,100 ft gain",
@@ -353,7 +352,7 @@ class DatabaseManager {
                 location: "Quandary Peak Ski Descent",
                 date: "2024-03-10",
                 members: ["Tyler", "Brendan"],
-                photos: ["imgs/quandary.jpg"],
+                photos: ["assets/images/quandary.jpg"],
                 description: "Epic spring skiing down a 14er! Perfect corn snow conditions and blue skies.",
                 distance: "6 miles",
                 elevation: "3,400 ft gain",
@@ -365,7 +364,7 @@ class DatabaseManager {
                 location: "Third Flatiron",
                 date: "2024-06-18",
                 members: ["Tyler", "Brendan", "Alex"],
-                photos: ["imgs/third-flatiron.jpeg"],
+                photos: ["assets/images/third-flatiron.jpeg"],
                 description: "Classic Boulder climbing route. Technical rock climbing with stunning Flatirons views.",
                 distance: "3 miles",
                 elevation: "1,400 ft gain",
