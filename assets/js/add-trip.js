@@ -1,8 +1,5 @@
 // Add Trip JavaScript
 
-// Password configuration
-const CLUB_PASSWORD = "BigMountain2024"; // Change this to your desired password
-
 class AddTrip {
     constructor() {
         this.uploadedPhotos = [];
@@ -129,29 +126,29 @@ class AddTrip {
         const errorDiv = document.getElementById('passwordError');
         const enteredPassword = passwordInput.value;
 
-        if (enteredPassword === CLUB_PASSWORD) {
+        if (enteredPassword === 'BigMountain2024') {
             this.isAuthenticated = true;
             sessionStorage.setItem('bmcAuthenticated', 'true');
             this.hidePasswordModal();
             errorDiv.style.display = 'none';
             
             // Show success message briefly
-                    this.showSuccessAuth(); // Show success message after authentication
-                } else {
-                    errorDiv.style.display = 'block'; // Display error message
-                    passwordInput.value = ''; // Clear password input
-                    passwordInput.focus(); // Focus on password input
-                    
-                    // Add shake animation to modal for visual feedback
-                    const modal = document.querySelector('.password-modal');
-                    modal.style.animation = 'shake 0.5s';
-                    setTimeout(() => {
-                        modal.style.animation = ''; // Reset animation after it completes
-                    }, 500);
-                }
-            }
+            this.showSuccessAuth();
+        } else {
+            errorDiv.style.display = 'block';
+            passwordInput.value = '';
+            passwordInput.focus();
+            
+            // Add shake animation to modal for visual feedback
+            const modal = document.querySelector('.password-modal');
+            modal.style.animation = 'shake 0.5s';
+            setTimeout(() => {
+                modal.style.animation = '';
+            }, 500);
+        }
+    }
 
-            showSuccessAuth() {
+    showSuccessAuth() {
                 // Temporarily show success message after authentication
                 const modal = document.querySelector('.password-modal-content');
                 const originalContent = modal.innerHTML; // Store original content for restoration
@@ -172,36 +169,36 @@ class AddTrip {
                 }, 1500);
             }
 
-            closePasswordModal() {
-                // Redirect back to trip log when closing the modal
-                window.location.href = 'trip-log.html';
-            }
+    closePasswordModal() {
+        // Redirect back to trip log when closing the modal
+        window.location.href = 'trip-log.html';
+    }
 
-            setupEventListeners() {
-                const form = document.getElementById('addTripForm'); // Get the form element
-                const photoFiles = document.getElementById('photoFiles'); // Get the photo file input
-                
-                form.addEventListener('submit', (e) => this.handleSubmit(e)); // Handle form submission
-                photoFiles.addEventListener('change', (e) => this.handlePhotoUpload(e)); // Handle photo file changes
-                
-                // Setup photo URL input monitoring
-                this.setupPhotoUrlListeners();
-            }
+    setupEventListeners() {
+        const form = document.getElementById('addTripForm');
+        const photoFiles = document.getElementById('photoFiles');
+        
+        form.addEventListener('submit', (e) => this.handleSubmit(e));
+        photoFiles.addEventListener('change', (e) => this.handlePhotoUpload(e));
+        
+        // Setup photo URL input monitoring
+        this.setupPhotoUrlListeners();
+    }
 
-            setupPhotoUrlListeners() {
-                const container = document.getElementById('photoUrlsContainer'); // Get the container for photo URLs
-                container.addEventListener('input', (e) => {
-                    if (e.target.name === 'photoUrls') {
-                        this.previewPhotoUrls(); // Preview photos when URLs are input
-                    }
-                });
+    setupPhotoUrlListeners() {
+        const container = document.getElementById('photoUrlsContainer');
+        container.addEventListener('input', (e) => {
+            if (e.target.name === 'photoUrls') {
+                this.previewPhotoUrls();
             }
+        });
+    }
 
-            setDefaultDate() {
-                const dateInput = document.getElementById('date'); // Get the date input
-                const today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
-                dateInput.value = today; // Set the default date to today
-            }
+    setDefaultDate() {
+        const dateInput = document.getElementById('date');
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.value = today;
+    }
 
     async handleSubmit(e) {
         e.preventDefault();
@@ -250,47 +247,47 @@ class AddTrip {
         }
     }
 
-            extractTripData(formData) {
-                // Get photo URLs from inputs
-                const photoUrlInputs = document.querySelectorAll('input[name="photoUrls"]');
-                const photoUrls = Array.from(photoUrlInputs)
-                    .map(input => input.value.trim())
-                    .filter(url => url !== '');
+    extractTripData(formData) {
+        // Get photo URLs from inputs
+        const photoUrlInputs = document.querySelectorAll('input[name="photoUrls"]');
+        const photoUrls = Array.from(photoUrlInputs)
+            .map(input => input.value.trim())
+            .filter(url => url !== '');
 
-                // Combine uploaded photos and URLs
-                const allPhotos = [...this.uploadedPhotos, ...photoUrls];
+        // Combine uploaded photos and URLs
+        const allPhotos = [...this.uploadedPhotos, ...photoUrls];
 
-                // Parse members list
-                const membersText = formData.get('members').trim();
-                const members = membersText ? membersText.split(',').map(m => m.trim()).filter(m => m !== '') : [];
+        // Parse members list
+        const membersText = formData.get('members').trim();
+        const members = membersText ? membersText.split(',').map(m => m.trim()).filter(m => m !== '') : [];
 
-                return {
-                    location: formData.get('location').trim(),
-                    date: formData.get('date'),
-                    duration: formData.get('duration').trim(),
-                    distance: formData.get('distance').trim(),
-                    elevation: formData.get('elevation').trim(),
-                    members: members,
-                    description: formData.get('description').trim(),
-                    photos: allPhotos
-                };
-            }
+        return {
+            location: formData.get('location').trim(),
+            date: formData.get('date'),
+            duration: formData.get('duration').trim(),
+            distance: formData.get('distance').trim(),
+            elevation: formData.get('elevation').trim(),
+            members: members,
+            description: formData.get('description').trim(),
+            photos: allPhotos
+        };
+    }
 
-            validateTripData(data) {
-                const errors = []; // Initialize an array to hold validation errors
+    validateTripData(data) {
+        const errors = [];
 
-                if (!data.location) errors.push('Location is required'); // Check for location
-                if (!data.date) errors.push('Date is required'); // Check for date
-                if (!data.description) errors.push('Description is required'); // Check for description
-                if (data.members.length === 0) errors.push('At least one member is required'); // Check for members
+        if (!data.location) errors.push('Location is required');
+        if (!data.date) errors.push('Date is required');
+        if (!data.description) errors.push('Description is required');
+        if (data.members.length === 0) errors.push('At least one member is required');
 
-                if (errors.length > 0) {
-                    alert('Please fix the following errors:\n\n' + errors.join('\n')); // Alert user of errors
-                    return false; // Return false if there are errors
-                }
+        if (errors.length > 0) {
+            alert('Please fix the following errors:\n\n' + errors.join('\n'));
+            return false;
+        }
 
-                return true; // Return true if validation passes
-            }
+        return true;
+    }
 
     async saveTripData(tripData) {
         try {
