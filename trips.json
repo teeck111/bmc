@@ -1,9 +1,9 @@
 {
   "trips": [
     {
-      "location": "test",
+      "location": "test2",
       "date": "2025-09-24",
-      "duration": "",
+      "duration": "N/A",
       "distance": "test",
       "elevation": "test",
       "members": [
@@ -13,7 +13,7 @@
       "photos": [],
       "id": "1758748809194",
       "dateAdded": "2025-09-24T21:20:09.194Z",
-      "dateModified": "2025-09-24T21:20:09.194Z"
+      "dateModified": "2025-09-24T21:27:12.798Z"
     },
     {
       "location": "Four Pass Loop",
@@ -36,7 +36,7 @@
       "dateModified": "2025-09-24T21:19:07.710Z"
     }
   ],
-  "lastUpdated": "2025-09-24T21:20:09.383Z",
+  "lastUpdated": "2025-09-24T21:27:12.800Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
