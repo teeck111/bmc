@@ -22,11 +22,7 @@
 </head>
 
 <body>
-    <!-- Sponsor Bar -->
-    <div class="sponsor-bar bg-light py-1 d-flex justify-content-around align-items-center">
-        <img src="assets/images/himali.png" alt="Sponsor 1" class="mx-4" height="30">
-        <img src="assets/images/rmu.png" alt="Sponsor 2" class="mx-4" height="30">
-    </div>
+   
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-relative">
@@ -256,8 +252,34 @@
         </div>
     </footer>
 
-    <script src="assets/js/firebase-config.js?v=1758669988"></script>
-    <script src="assets/js/add-trip.js?v=1758669988"></script>
+    <script src="assets/js/github-database.js?v=1"></script>
+    <script src="assets/js/add-trip.js?v=6"></script>
+    <script>
+        // Auto-configure APIs from localStorage
+        window.addEventListener('load', () => {
+            const githubToken = localStorage.getItem('bmc-github-token');
+            const imgurClientId = localStorage.getItem('bmc-imgur-client-id');
+            
+            if (githubToken && imgurClientId && window.configureAPIs) {
+                window.configureAPIs(githubToken, imgurClientId);
+                console.log('✅ APIs auto-configured from localStorage');
+            } else {
+                console.log('⚠️ APIs not configured. Visit setup-apis.html to configure.');
+                // Show setup notice
+                const notice = document.createElement('div');
+                notice.className = 'alert alert-warning position-fixed';
+                notice.style.cssText = 'top: 20px; right: 20px; z-index: 9999; max-width: 350px;';
+                notice.innerHTML = `
+                    <h6>⚠️ API Setup Required</h6>
+                    <p class="mb-2">To upload photos and save trips, you need to configure GitHub + Imgur APIs.</p>
+                    <a href="setup-apis.html" class="btn btn-warning btn-sm">
+                        <i class="fas fa-cog"></i> Setup APIs
+                    </a>
+                `;
+                document.body.appendChild(notice);
+            }
+        });
+    </script>
 </body>
 
 </html>
