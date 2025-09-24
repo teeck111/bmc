@@ -1,23 +1,6 @@
 {
   "trips": [
     {
-      "location": "Yay",
-      "date": "2025-09-24",
-      "duration": "N/A",
-      "distance": "test",
-      "elevation": "test",
-      "members": [
-        "tets"
-      ],
-      "description": "test",
-      "photos": [
-        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1758747846036-0-Bus to Show - Poster for Riders - Kivelson.png"
-      ],
-      "id": "1758747849230",
-      "dateAdded": "2025-09-24T21:04:09.230Z",
-      "dateModified": "2025-09-24T21:16:36.506Z"
-    },
-    {
       "location": "Test Peak",
       "date": "2024-01-01",
       "members": [
@@ -33,7 +16,7 @@
       "dateModified": "2025-09-24T21:03:31.530Z"
     }
   ],
-  "lastUpdated": "2025-09-24T21:16:36.521Z",
+  "lastUpdated": "2025-09-24T21:17:04.709Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
