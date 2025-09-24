@@ -4,7 +4,7 @@
     "indexes": "config/firestore.indexes.json"
   },
   "storage": {
-    "rules": "config/storage.rules"
+    "rules": "bmcrules"
   },
   "hosting": {
     "public": ".",
@@ -42,7 +42,7 @@
         "source": "**/*.@(js|css)",
         "headers": [
           {
-            "key": "Cache-Control", 
+            "key": "Cache-Control",
             "value": "max-age=3600"
           }
         ]
