@@ -4,6 +4,7 @@ debug-*.html
 production-tests.html
 cleanup-for-production.sh
 github-test.html
+upload-test.html
 
 # Logs and temporary files
 *.log

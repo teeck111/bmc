@@ -35,6 +35,37 @@ class GitHubDatabaseManager {
     setCredentials(githubToken) {
         CONFIG.github.token = githubToken;
         console.log('GitHub API credentials configured');
+        // Test repository access
+        this.validateRepositoryAccess();
+    }
+    
+    // Validate repository access and configuration
+    async validateRepositoryAccess() {
+        try {
+            const response = await fetch(`https://api.github.com/repos/${CONFIG.github.owner}/${CONFIG.github.repo}`, {
+                headers: {
+                    'Authorization': `token ${CONFIG.github.token}`,
+                    'Accept': 'application/vnd.github.v3+json'
+                }
+            });
+            
+            if (response.ok) {
+                const repo = await response.json();
+                console.log('✅ Repository access verified:');
+                console.log(`- Repository: ${repo.full_name}`);
+                console.log(`- Public: ${repo.private ? 'No (Private)' : 'Yes (Public)'}`);
+                console.log(`- Permissions: ${repo.permissions ? JSON.stringify(repo.permissions) : 'Limited'}`);
+                
+                if (repo.private) {
+                    console.warn('⚠️ Repository is private - uploaded images may not be globally accessible');
+                    console.warn('💡 Consider making the repository public for global image access');
+                }
+            } else {
+                console.error(`❌ Repository access failed: ${response.status} ${response.statusText}`);
+            }
+        } catch (error) {
+            console.error('❌ Repository validation error:', error.message);
+        }
     }
 
     // Initialize data file on GitHub if it doesn't exist
@@ -431,17 +462,36 @@ class GitHubDatabaseManager {
             });
 
             if (!fileResponse.ok) {
-                throw new Error(`Failed to upload file: ${fileResponse.status}`);
+                const errorText = await fileResponse.text();
+                console.error('GitHub upload error details:', {
+                    status: fileResponse.status,
+                    statusText: fileResponse.statusText,
+                    response: errorText
+                });
+                throw new Error(`GitHub upload failed: ${fileResponse.status} ${fileResponse.statusText} - ${errorText}`);
             }
 
             const fileData = await fileResponse.json();
-            const imageUrl = fileData.content.download_url;
-
-            console.log('Photo uploaded to GitHub successfully:', imageUrl);
-            return imageUrl;
+            
+            // Use multiple URL formats for maximum compatibility
+            const downloadUrl = fileData.content.download_url;
+            const rawUrl = `https://raw.githubusercontent.com/${CONFIG.github.owner}/${CONFIG.github.repo}/master/${fileName}`;
+            
+            console.log('Photo uploaded to GitHub successfully:');
+            console.log('- Download URL:', downloadUrl);
+            console.log('- Raw URL:', rawUrl);
+            
+            // Return the raw URL for better global accessibility
+            return rawUrl;
             
         } catch (error) {
-            console.error('Error uploading to GitHub:', error);
+            console.error('Error uploading to GitHub:', {
+                message: error.message,
+                stack: error.stack,
+                fileName: fileName,
+                fileSize: file.size,
+                fileType: file.type
+            });
             return null;
         }
     }
