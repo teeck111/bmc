@@ -116,14 +116,27 @@ class NetlifyDatabaseManager {
             }
 
             const data = await response.json();
+            console.log('Upload response data:', data);
+            
             if (data.uploadedUrls && data.uploadedUrls.length > 0) {
                 console.log('Photo uploaded successfully:', data.uploadedUrls[0]);
                 return data.uploadedUrls[0];
             } else {
-                throw new Error('No photo URL returned');
+                console.error('Upload response missing URLs:', data);
+                if (data.errors && data.errors.length > 0) {
+                    throw new Error(`Upload errors: ${data.errors.join(', ')}`);
+                } else {
+                    throw new Error('No photo URL returned - check Netlify function logs');
+                }
             }
         } catch (error) {
             console.error('Error uploading photo via Netlify:', error);
+            // In local development, create a local blob URL as fallback
+            if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                console.log('Creating local blob URL for development...');
+                const blobUrl = URL.createObjectURL(file);
+                return blobUrl;
+            }
             return null;
         }
     }
