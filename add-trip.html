@@ -188,19 +188,19 @@
                                 </div>
                             </div>
                             <div class="form-text">
-                                <strong>Best for persistence:</strong> Upload photos to <a href="https://imgur.com" target="_blank">Imgur</a>, Google Photos, or similar service and paste the direct image links here.
+                                <strong>Best for persistence:</strong> Upload photos to Imgur, Google Photos, or similar service and paste the direct image links here.
                                 <br><small class="text-success">✓ Photos will sync across all devices and persist permanently</small>
                             </div>
                         </div>
 
-                        <!-- Firebase Storage Upload -->
+                        <!-- GitHub Photo Upload -->
                         <div class="mb-3">
-                            <label for="photoFiles" class="form-label">Or Upload Photos <span class="badge bg-success">Cloud Storage</span></label>
+                            <label for="photoFiles" class="form-label">Or Upload Photos <span class="badge bg-success">GitHub Storage</span></label>
                             <input type="file" class="form-control" id="photoFiles" name="photoFiles" 
                                    multiple accept="image/*">
                             <div class="form-text">
-                                <small class="text-success">✅ Photos will be uploaded to Firebase Storage and visible to everyone</small>
-                                <br><small>Max size: 10MB per image • Supported: JPG, PNG, GIF, WEBP</small>
+                                <small class="text-success">✅ Photos will be uploaded to GitHub and visible to everyone</small>
+                                <br><small>Max size: 25MB per image • Supported: JPG, PNG, GIF, WEBP</small>
                             </div>
                         </div>
 
@@ -258,22 +258,21 @@
         // Auto-configure APIs from localStorage
         window.addEventListener('load', () => {
             const githubToken = localStorage.getItem('bmc-github-token');
-            const imgurClientId = localStorage.getItem('bmc-imgur-client-id');
             
-            if (githubToken && imgurClientId && window.configureAPIs) {
-                window.configureAPIs(githubToken, imgurClientId);
-                console.log('✅ APIs auto-configured from localStorage');
+            if (githubToken && window.configureAPIs) {
+                window.configureAPIs(githubToken);
+                console.log('✅ GitHub API auto-configured from localStorage');
             } else {
-                console.log('⚠️ APIs not configured. Visit setup-apis.html to configure.');
+                console.log('⚠️ GitHub API not configured. Visit setup-apis.html to configure.');
                 // Show setup notice
                 const notice = document.createElement('div');
                 notice.className = 'alert alert-warning position-fixed';
                 notice.style.cssText = 'top: 20px; right: 20px; z-index: 9999; max-width: 350px;';
                 notice.innerHTML = `
-                    <h6>⚠️ API Setup Required</h6>
-                    <p class="mb-2">To upload photos and save trips, you need to configure GitHub + Imgur APIs.</p>
+                    <h6>⚠️ GitHub Setup Required</h6>
+                    <p class="mb-2">To upload photos and save trips, you need to configure your GitHub token.</p>
                     <a href="setup-apis.html" class="btn btn-warning btn-sm">
-                        <i class="fas fa-cog"></i> Setup APIs
+                        <i class="fas fa-cog"></i> Setup GitHub
                     </a>
                 `;
                 document.body.appendChild(notice);

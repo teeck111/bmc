@@ -17,14 +17,13 @@
 </head>
 <body>
     <div class="setup-container container">
-        <h1 class="text-center mb-4">🔧 API Setup for GitHub + Imgur</h1>
-        <p class="lead text-center">Set up your API credentials to enable photo uploads and data storage</p>
+        <h1 class="text-center mb-4">🔧 GitHub Setup</h1>
+        <p class="lead text-center">Set up your GitHub credentials to enable photo uploads and trip data storage</p>
         
         <div class="alert alert-info">
             <h5>📋 What you need:</h5>
             <ul class="mb-0">
-                <li><strong>GitHub Personal Access Token</strong> - To store trip data</li>
-                <li><strong>Imgur Client ID</strong> - To upload photos</li>
+                <li><strong>GitHub Personal Access Token</strong> - To store trip data and photos</li>
             </ul>
         </div>
 
@@ -71,54 +70,15 @@
             </div>
         </div>
 
-        <!-- Step 2: Imgur Client ID -->
-        <div class="step">
-            <div class="card">
-                <div class="card-header">
-                    <h4>🖼️ Step 2: Imgur Client ID</h4>
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h6>Instructions:</h6>
-                            <ol>
-                                <li>Go to <a href="https://api.imgur.com/oauth2/addclient" target="_blank">Imgur API Registration</a></li>
-                                <li>Fill out the form:
-                                    <ul>
-                                        <li><strong>Application name:</strong> "Big Mountain Club"</li>
-                                        <li><strong>Authorization type:</strong> "Anonymous usage without user authorization"</li>
-                                        <li><strong>Authorization callback URL:</strong> "https://bigmtnclub.com"</li>
-                                        <li><strong>Email:</strong> Your email</li>
-                                        <li><strong>Description:</strong> "Photo uploads for club trip logs"</li>
-                                    </ul>
-                                </li>
-                                <li>Click <strong>"Submit"</strong></li>
-                                <li>Copy the <strong>Client ID</strong> (NOT the Client Secret)</li>
-                            </ol>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="credential-input">
-                                <label class="form-label">Imgur Client ID:</label>
-                                <input type="text" id="imgur-client-id" class="form-control" 
-                                       placeholder="abc123def456">
-                                <div class="form-text">This is safe to share publicly.</div>
-                            </div>
-                            <button onclick="testImgur()" class="btn btn-primary">Test Imgur Access</button>
-                            <div id="imgur-result" class="test-result"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <!-- Step 3: Save & Test -->
+        <!-- Step 2: Save & Test -->
         <div class="step">
             <div class="card">
                 <div class="card-header">
-                    <h4>💾 Step 3: Save Configuration</h4>
+                    <h4>💾 Step 2: Save Configuration</h4>
                 </div>
                 <div class="card-body">
-                    <p>Once both credentials are working, save them to your browser:</p>
+                    <p>Once your GitHub token is working, save it to your browser:</p>
                     <button onclick="saveCredentials()" class="btn btn-success btn-lg">
                         <i class="fas fa-save"></i> Save & Test Everything
                     </button>
@@ -132,7 +92,7 @@
                             <li><strong>GitHub Token:</strong> Stored securely in your browser's local storage</li>
                             <li><strong>Never shared:</strong> These credentials stay on your device</li>
                             <li><strong>Revokable:</strong> You can revoke tokens anytime on GitHub</li>
-                            <li><strong>Imgur Client ID:</strong> Safe to use publicly (it's designed for this)</li>
+                            <li><strong>Photo Storage:</strong> Photos stored directly in your GitHub repository</li>
                         </ul>
                     </div>
                 </div>
@@ -197,62 +157,31 @@
             }
         }
 
-        async function testImgur() {
-            const clientId = document.getElementById('imgur-client-id').value.trim();
-            const resultDiv = document.getElementById('imgur-result');
-            
-            if (!clientId) {
-                resultDiv.innerHTML = '<div class="alert alert-warning">Please enter an Imgur Client ID first</div>';
-                return;
-            }
-            
-            resultDiv.innerHTML = '<div class="alert alert-info"><i class="fas fa-spinner fa-spin"></i> Testing Imgur access...</div>';
-            
-            try {
-                // Test Imgur API access (just check if we can hit the endpoint)
-                const response = await fetch('https://api.imgur.com/3/credits', {
-                    headers: {
-                        'Authorization': `Client-ID ${clientId}`
-                    }
-                });
-                
-                if (response.ok) {
-                    const data = await response.json();
-                    resultDiv.innerHTML = `<div class="alert alert-success"><i class="fas fa-check"></i> ✅ Imgur access working! Credits: ${data.data.ClientRemaining} remaining</div>`;
-                } else {
-                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-                }
-            } catch (error) {
-                resultDiv.innerHTML = `<div class="alert alert-danger"><i class="fas fa-times"></i> ❌ Imgur test failed: ${error.message}</div>`;
-            }
-        }
 
         function saveCredentials() {
             const githubToken = document.getElementById('github-token').value.trim();
-            const imgurClientId = document.getElementById('imgur-client-id').value.trim();
             const resultDiv = document.getElementById('save-result');
             
-            if (!githubToken || !imgurClientId) {
-                resultDiv.innerHTML = '<div class="alert alert-warning">Please enter both credentials and test them first</div>';
+            if (!githubToken) {
+                resultDiv.innerHTML = '<div class="alert alert-warning">Please enter your GitHub token and test it first</div>';
                 return;
             }
             
             try {
                 // Save to localStorage (secure storage)
                 localStorage.setItem('bmc-github-token', githubToken);
-                localStorage.setItem('bmc-imgur-client-id', imgurClientId);
                 
                 // Configure the database manager
                 if (window.configureAPIs) {
-                    window.configureAPIs(githubToken, imgurClientId);
+                    window.configureAPIs(githubToken);
                 }
                 
                 resultDiv.innerHTML = `
                     <div class="alert alert-success">
                         <h6><i class="fas fa-check-circle"></i> ✅ Configuration Saved!</h6>
-                        <p class="mb-0">Your API credentials are now configured. You can:</p>
+                        <p class="mb-0">Your GitHub token is now configured. You can:</p>
                         <ul class="mb-0 mt-2">
-                            <li>Upload photos to Imgur</li>
+                            <li>Upload photos to GitHub</li>
                             <li>Store trip data in GitHub</li>
                             <li>Use all website features normally</li>
                         </ul>
@@ -281,21 +210,15 @@
         // Auto-load saved credentials
         window.addEventListener('load', () => {
             const savedGithubToken = localStorage.getItem('bmc-github-token');
-            const savedImgurClientId = localStorage.getItem('bmc-imgur-client-id');
             
             if (savedGithubToken) {
                 document.getElementById('github-token').value = savedGithubToken;
                 document.getElementById('github-result').innerHTML = '<div class="alert alert-info">Previously saved token loaded</div>';
             }
             
-            if (savedImgurClientId) {
-                document.getElementById('imgur-client-id').value = savedImgurClientId;
-                document.getElementById('imgur-result').innerHTML = '<div class="alert alert-info">Previously saved client ID loaded</div>';
-            }
-            
-            // Configure APIs if both are available
-            if (savedGithubToken && savedImgurClientId && window.configureAPIs) {
-                window.configureAPIs(savedGithubToken, savedImgurClientId);
+            // Configure APIs if available
+            if (savedGithubToken && window.configureAPIs) {
+                window.configureAPIs(savedGithubToken);
             }
         });
     </script>

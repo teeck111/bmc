@@ -172,16 +172,15 @@
     <script src="assets/js/github-database.js?v=1"></script>
     <script src="assets/js/trip-log.js?v=4"></script>
     <script>
-        // Auto-configure APIs from localStorage
+        // Auto-configure GitHub API from localStorage
         window.addEventListener('load', () => {
             const githubToken = localStorage.getItem('bmc-github-token');
-            const imgurClientId = localStorage.getItem('bmc-imgur-client-id');
             
-            if (githubToken && imgurClientId && window.configureAPIs) {
-                window.configureAPIs(githubToken, imgurClientId);
-                console.log('✅ APIs auto-configured from localStorage');
+            if (githubToken && window.configureAPIs) {
+                window.configureAPIs(githubToken);
+                console.log('✅ GitHub API auto-configured from localStorage');
             } else {
-                console.log('⚠️ APIs not configured. Visit setup-apis.html to configure.');
+                console.log('⚠️ GitHub API not configured. Visit setup-apis.html to configure.');
             }
         });
     </script>

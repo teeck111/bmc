@@ -1,7 +1,7 @@
-// GitHub + Imgur Database Manager
+// GitHub Database Manager
 // Simple, reliable alternative to Firebase
 
-console.log('Loading GitHub + Imgur database manager...');
+console.log('Loading GitHub database manager...');
 
 // Configuration - these need to be set up
 const CONFIG = {
@@ -10,11 +10,18 @@ const CONFIG = {
         repo: 'bmc',       // Your repository name
         token: null,       // Will be set dynamically
         dataFile: 'data/trips.json'
-    },
-    imgur: {
-        clientId: null     // Will be set dynamically
     }
 };
+
+// Initialize with localStorage if available
+if (typeof window !== 'undefined') {
+    const savedGithubToken = localStorage.getItem('bmc-github-token');
+    
+    if (savedGithubToken) {
+        CONFIG.github.token = savedGithubToken;
+        console.log('GitHub token loaded from localStorage');
+    }
+}
 
 class GitHubDatabaseManager {
     constructor() {
@@ -25,10 +32,9 @@ class GitHubDatabaseManager {
     }
 
     // Set API credentials (called after page load)
-    setCredentials(githubToken, imgurClientId) {
+    setCredentials(githubToken) {
         CONFIG.github.token = githubToken;
-        CONFIG.imgur.clientId = imgurClientId;
-        console.log('API credentials configured');
+        console.log('GitHub API credentials configured');
     }
 
     // Get all trips
@@ -298,10 +304,10 @@ class GitHubDatabaseManager {
         console.log('Trip deleted from GitHub successfully');
     }
 
-    // Upload photo to Imgur
+    // Upload photo to GitHub Issues (free unlimited storage)
     async uploadPhoto(file, tripId = null) {
-        if (!CONFIG.imgur.clientId) {
-            console.warn('Imgur client ID not configured');
+        if (!CONFIG.github.token) {
+            console.warn('GitHub token not configured');
             return null;
         }
 
@@ -311,46 +317,101 @@ class GitHubDatabaseManager {
             return null;
         }
 
-        // Check file size (max 10MB for Imgur)
-        if (file.size > 10 * 1024 * 1024) {
-            console.error('File too large:', file.size, 'bytes');
+        // Check file size (GitHub allows up to 25MB)
+        if (file.size > 25 * 1024 * 1024) {
+            console.error('File too large:', file.size, 'bytes. GitHub limit is 25MB.');
             return null;
         }
 
         try {
-            console.log('Uploading photo to Imgur:', file.name, `(${(file.size/1024/1024).toFixed(2)}MB)`);
+            console.log('Uploading photo to GitHub:', file.name, `(${(file.size/1024/1024).toFixed(2)}MB)`);
             
-            const formData = new FormData();
-            formData.append('image', file);
-            formData.append('type', 'file');
-            formData.append('title', `BMC Trip Photo - ${file.name}`);
-            formData.append('description', `Uploaded for Big Mountain Club trip${tripId ? ` (${tripId})` : ''}`);
-
-            const response = await fetch('https://api.imgur.com/3/image', {
+            // Create a temporary issue to upload the image
+            const issueTitle = `BMC Photo Upload - ${new Date().toISOString()}`;
+            const issueBody = `Temporary issue for photo upload\n\nTrip: ${tripId || 'Unknown'}\nFile: ${file.name}\nSize: ${(file.size/1024/1024).toFixed(2)}MB`;
+            
+            // Create issue
+            const issueResponse = await fetch(`https://api.github.com/repos/${CONFIG.github.owner}/${CONFIG.github.repo}/issues`, {
                 method: 'POST',
                 headers: {
-                    'Authorization': `Client-ID ${CONFIG.imgur.clientId}`
+                    'Authorization': `token ${CONFIG.github.token}`,
+                    'Content-Type': 'application/json'
                 },
-                body: formData
+                body: JSON.stringify({
+                    title: issueTitle,
+                    body: issueBody,
+                    labels: ['photo-upload', 'auto-generated']
+                })
             });
 
-            if (!response.ok) {
-                throw new Error(`Imgur API error: ${response.status}`);
+            if (!issueResponse.ok) {
+                throw new Error(`Failed to create issue: ${issueResponse.status}`);
             }
 
-            const data = await response.json();
+            const issue = await issueResponse.json();
+            const issueNumber = issue.number;
             
-            if (!data.success) {
-                throw new Error(`Imgur upload failed: ${data.data.error}`);
+            // Upload image as attachment to the issue using GraphQL
+            // First convert file to base64
+            const base64 = await new Promise((resolve) => {
+                const reader = new FileReader();
+                reader.onload = () => resolve(reader.result.split(',')[1]);
+                reader.readAsDataURL(file);
+            });
+            
+            // Create a comment with the image attachment
+            const formData = new FormData();
+            formData.append('file', file);
+            formData.append('name', file.name);
+            formData.append('parent_id', issueNumber.toString());
+            formData.append('parent_type', 'Issue');
+            formData.append('repository_id', CONFIG.github.repo);
+            formData.append('authenticity_token', 'dummy'); // GitHub will handle this
+            
+            // Use GitHub's upload endpoint
+            const uploadUrl = `https://github.com/${CONFIG.github.owner}/${CONFIG.github.repo}/upload/policies/assets`;
+            
+            // Alternative approach: use GitHub's file upload API
+            const timestamp = Date.now();
+            const fileName = `photos/${timestamp}-${file.name.replace(/[^a-zA-Z0-9.-]/g, '_')}`;
+            
+            const fileResponse = await fetch(`https://api.github.com/repos/${CONFIG.github.owner}/${CONFIG.github.repo}/contents/${fileName}`, {
+                method: 'PUT',
+                headers: {
+                    'Authorization': `token ${CONFIG.github.token}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    message: `Add photo: ${file.name}`,
+                    content: base64,
+                    branch: 'main'
+                })
+            });
+
+            if (!fileResponse.ok) {
+                throw new Error(`Failed to upload file: ${fileResponse.status}`);
             }
 
-            const imageUrl = data.data.link;
-            console.log('Photo uploaded to Imgur successfully:', imageUrl);
+            const fileData = await fileResponse.json();
+            const imageUrl = fileData.content.download_url;
             
+            // Close the temporary issue
+            await fetch(`https://api.github.com/repos/${CONFIG.github.owner}/${CONFIG.github.repo}/issues/${issueNumber}`, {
+                method: 'PATCH',
+                headers: {
+                    'Authorization': `token ${CONFIG.github.token}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    state: 'closed'
+                })
+            });
+
+            console.log('Photo uploaded to GitHub successfully:', imageUrl);
             return imageUrl;
             
         } catch (error) {
-            console.error('Error uploading to Imgur:', error);
+            console.error('Error uploading to GitHub:', error);
             return null;
         }
     }
@@ -359,7 +420,7 @@ class GitHubDatabaseManager {
     async uploadPhotos(files, tripId, onProgress = null) {
         if (!files || files.length === 0) return [];
         
-        console.log(`Starting upload of ${files.length} photos to Imgur...`);
+        console.log(`Starting upload of ${files.length} photos to GitHub...`);
         
         const results = [];
         
@@ -378,7 +439,7 @@ class GitHubDatabaseManager {
             }
         }
         
-        console.log(`Successfully uploaded ${results.length}/${files.length} photos to Imgur`);
+        console.log(`Successfully uploaded ${results.length}/${files.length} photos to GitHub`);
         return results;
     }
 
@@ -473,10 +534,10 @@ if (typeof window !== 'undefined') {
 }
 
 // Function to configure API credentials (called from HTML pages)
-window.configureAPIs = function(githubToken, imgurClientId) {
+window.configureAPIs = function(githubToken) {
     if (gitHubDbManager) {
-        gitHubDbManager.setCredentials(githubToken, imgurClientId);
-        console.log('✅ API credentials configured successfully');
+        gitHubDbManager.setCredentials(githubToken);
+        console.log('✅ GitHub API credentials configured successfully');
     } else {
         console.error('❌ Database manager not available');
     }
