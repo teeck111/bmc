@@ -1,6 +1,33 @@
 {
   "trips": [
     {
+      "location": "Mt Holy Cross",
+      "date": "2024-10-05",
+      "duration": "10 hours",
+      "distance": "14 miles",
+      "elevation": "3000",
+      "members": [
+        "Tyler",
+        "Holden",
+        "Ollie",
+        "Oliver",
+        "Joey",
+        "Brendan",
+        "Campbell",
+        "Owen",
+        "David",
+        "Mason"
+      ],
+      "description": "First ever club trip and everyone summitted!",
+      "photos": [
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1758749599164-0-IMG_8255.jpeg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1758749601181-0-IMG_0034.jpeg"
+      ],
+      "id": "1758749605249",
+      "dateAdded": "2025-09-24T21:33:25.249Z",
+      "dateModified": "2025-09-24T21:33:25.251Z"
+    },
+    {
       "location": "Four Pass Loop",
       "date": "2025-09-24",
       "duration": "10 hours",
@@ -21,7 +48,7 @@
       "dateModified": "2025-09-24T21:29:21.073Z"
     }
   ],
-  "lastUpdated": "2025-09-24T21:29:21.073Z",
+  "lastUpdated": "2025-09-24T21:33:25.585Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
