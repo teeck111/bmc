@@ -37,6 +37,39 @@ class GitHubDatabaseManager {
         console.log('GitHub API credentials configured');
     }
 
+    // Initialize data file on GitHub if it doesn't exist
+    async initializeDataFile() {
+        console.log('Initializing data file on GitHub...');
+        
+        const initialData = {
+            trips: this.getDefaultTrips(),
+            lastUpdated: new Date().toISOString(),
+            version: "1.0",
+            description: "Big Mountain Club trip data"
+        };
+        
+        const url = `https://api.github.com/repos/${CONFIG.github.owner}/${CONFIG.github.repo}/contents/${CONFIG.github.dataFile}`;
+        
+        const response = await fetch(url, {
+            method: 'PUT',
+            headers: {
+                'Authorization': `token ${CONFIG.github.token}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                message: 'Initialize BMC trips data file',
+                content: btoa(JSON.stringify(initialData, null, 2)),
+                branch: 'master'
+            })
+        });
+        
+        if (!response.ok) {
+            throw new Error(`Failed to initialize data file: ${response.status}`);
+        }
+        
+        console.log('Data file initialized successfully');
+    }
+
     // Get all trips
     async getTrips() {
         if (this.useGitHub && CONFIG.github.token) {
@@ -70,6 +103,13 @@ class GitHubDatabaseManager {
                 'Accept': 'application/vnd.github.v3+json'
             }
         });
+
+        if (response.status === 404) {
+            // File doesn't exist, create it with default data
+            console.log('Data file not found, creating with default data...');
+            await this.initializeDataFile();
+            return await this.getTripsFromGitHub(); // Recursively call after creating file
+        }
 
         if (!response.ok) {
             throw new Error(`GitHub API error: ${response.status}`);
@@ -121,6 +161,13 @@ class GitHubDatabaseManager {
                 'Accept': 'application/vnd.github.v3+json'
             }
         });
+
+        if (response.status === 404) {
+            // File doesn't exist, create it first
+            console.log('Data file not found, creating...');
+            await this.initializeDataFile();
+            return await this.addTripToGitHub(newTrip); // Recursively call after creating file
+        }
 
         if (!response.ok) {
             throw new Error(`Failed to fetch current data: ${response.status}`);
@@ -191,6 +238,11 @@ class GitHubDatabaseManager {
                 'Accept': 'application/vnd.github.v3+json'
             }
         });
+
+        if (response.status === 404) {
+            // File doesn't exist, can't update non-existent trip
+            throw new Error('Data file not found. Cannot update trip.');
+        }
 
         if (!response.ok) {
             throw new Error(`Failed to fetch current data: ${response.status}`);
