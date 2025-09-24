@@ -171,10 +171,10 @@ class DatabaseManager {
         }
 
         try {
-            // Create a unique filename
+            // Create a unique filename directly in trip-photos folder
             const timestamp = Date.now();
             const sanitizedFileName = file.name.replace(/[^a-zA-Z0-9.-]/g, '_');
-            const filename = `trip-photos/${tripId || 'temp'}/${timestamp}-${sanitizedFileName}`;
+            const filename = `trip-photos/${timestamp}-${sanitizedFileName}`;
             
             // Create storage reference
             const storageRef = storage.ref(filename);

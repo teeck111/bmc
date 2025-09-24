@@ -171,7 +171,8 @@
             try {
                 // Create storage reference
                 const timestamp = Date.now();
-                const filename = `test-uploads/${timestamp}-${file.name}`;
+                const sanitizedFileName = file.name.replace(/[^a-zA-Z0-9.-]/g, '_');
+                const filename = `test-uploads/${timestamp}-${sanitizedFileName}`;
                 const storageRef = storage.ref(filename);
                 
                 logMessage(`📁 Upload path: ${filename}`, 'info');
