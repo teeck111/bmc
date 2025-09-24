@@ -23,12 +23,12 @@ class TripLog {
 
     async loadTrips() {
         try {
-            // Check for dbManager availability
-            const dbMgr = window.dbManager || dbManager;
-            if (dbMgr) {
+            // Check for Netlify database manager availability
+            const dbMgr = window.dbManager || window.netlifyDbManager;
+            if (dbMgr && typeof dbMgr.getTrips === 'function') {
                 this.trips = await dbMgr.getTrips();
-                console.log('Loaded', this.trips.length, 'trips from database');
-                console.log('Raw trip data from database:', this.trips);
+                console.log('Loaded', this.trips.length, 'trips from Netlify database');
+                console.log('Raw trip data from Netlify database:', this.trips);
                 
                 // Validate and clean each trip from database
                 this.trips = this.trips.map(trip => {
@@ -48,12 +48,12 @@ class TripLog {
                 });
             } else {
                 // Fallback to localStorage
-                console.warn('Database manager not available, loading from localStorage');
+                console.warn('Netlify database manager not available, loading from localStorage');
                 this.trips = this.loadFromLocalStorage();
                 console.log('Loaded', this.trips.length, 'trips from localStorage');
             }
         } catch (error) {
-            console.error('Error loading trips from database:', error);
+            console.error('Error loading trips from Netlify database:', error);
             console.warn('Falling back to localStorage');
             this.trips = this.loadFromLocalStorage();
         }

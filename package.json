@@ -1,0 +1,14 @@
+{
+  "name": "big-mountain-club",
+  "version": "1.0.0",
+  "description": "Big Mountain Club website with Netlify functions",
+  "scripts": {
+    "dev": "netlify dev"
+  },
+  "dependencies": {
+    "lambda-multipart-parser": "^1.0.1"
+  },
+  "devDependencies": {
+    "netlify-cli": "^17.0.0"
+  }
+}
