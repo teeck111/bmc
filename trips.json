@@ -1,9 +1,9 @@
 {
   "trips": [
     {
-      "location": "test1",
+      "location": "Yay",
       "date": "2025-09-24",
-      "duration": "",
+      "duration": "N/A",
       "distance": "test",
       "elevation": "test",
       "members": [
@@ -15,7 +15,7 @@
       ],
       "id": "1758747849230",
       "dateAdded": "2025-09-24T21:04:09.230Z",
-      "dateModified": "2025-09-24T21:04:09.230Z"
+      "dateModified": "2025-09-24T21:16:36.506Z"
     },
     {
       "location": "Test Peak",
@@ -33,7 +33,7 @@
       "dateModified": "2025-09-24T21:03:31.530Z"
     }
   ],
-  "lastUpdated": "2025-09-24T21:04:09.415Z",
+  "lastUpdated": "2025-09-24T21:16:36.521Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
