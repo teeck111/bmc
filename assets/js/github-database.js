@@ -70,6 +70,29 @@ class GitHubDatabaseManager {
         console.log('Data file initialized successfully');
     }
 
+    // Migrate old image paths to correct ones
+    migrateImagePaths(trips) {
+        return trips.map(trip => {
+            if (trip.photos && Array.isArray(trip.photos)) {
+                const migratedPhotos = trip.photos.map(photo => {
+                    // Fix old imgs/ paths to assets/images/
+                    if (photo.startsWith('imgs/')) {
+                        const newPath = photo.replace('imgs/', 'assets/images/');
+                        console.log(`Migrating image path: ${photo} -> ${newPath}`);
+                        return newPath;
+                    }
+                    return photo;
+                });
+                
+                return {
+                    ...trip,
+                    photos: migratedPhotos
+                };
+            }
+            return trip;
+        });
+    }
+
     // Get all trips
     async getTrips() {
         if (this.useGitHub && CONFIG.github.token) {
@@ -123,7 +146,11 @@ class GitHubDatabaseManager {
         this.lastCacheTime = Date.now();
         
         console.log(`Loaded ${content.trips.length} trips from GitHub`);
-        return content.trips;
+        
+        // Migrate old image paths if needed
+        const migratedTrips = this.migrateImagePaths(content.trips);
+        
+        return migratedTrips;
     }
 
     // Add new trip
@@ -452,7 +479,9 @@ class GitHubDatabaseManager {
         if (stored) {
             const trips = JSON.parse(stored);
             console.log(`Loaded ${trips.length} trips from localStorage`);
-            return trips;
+            // Migrate old image paths if needed
+            const migratedTrips = this.migrateImagePaths(trips);
+            return migratedTrips;
         }
         return this.getDefaultTrips();
     }
@@ -488,7 +517,7 @@ class GitHubDatabaseManager {
     }
 
     getDefaultTrips() {
-        // Default sample data (same as before)
+        // Default sample data with correct image paths
         return [
             {
                 id: "1",
@@ -513,6 +542,18 @@ class GitHubDatabaseManager {
                 elevation: "4,200 ft gain",
                 duration: "3 days",
                 dateAdded: "2024-07-22T10:00:00.000Z"
+            },
+            {
+                id: "3",
+                location: "Third Flatiron",
+                date: "2024-09-10",
+                members: ["Tyler", "Sarah", "Alex"],
+                photos: ["assets/images/third-flatiron.jpeg"],
+                description: "Classic Boulder rock climb with stunning views of the Front Range. Perfect weather for this iconic Colorado adventure!",
+                distance: "3 miles",
+                elevation: "1,400 ft gain",
+                duration: "5 hours",
+                dateAdded: "2024-09-10T10:00:00.000Z"
             }
         ];
     }

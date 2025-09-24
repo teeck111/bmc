@@ -3,6 +3,7 @@ test-*.html
 debug-*.html
 production-tests.html
 cleanup-for-production.sh
+github-test.html
 
 # Logs and temporary files
 *.log

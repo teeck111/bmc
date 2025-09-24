@@ -63,20 +63,45 @@ class TripLog {
         const stored = localStorage.getItem('bmcTrips');
         if (stored) {
             const trips = JSON.parse(stored);
-            return trips;
+            // Migrate old image paths if needed
+            const migratedTrips = this.migrateImagePaths(trips);
+            return migratedTrips;
         }
         return this.getDefaultTrips();
     }
+    
+    // Migrate old image paths to correct ones
+    migrateImagePaths(trips) {
+        return trips.map(trip => {
+            if (trip.photos && Array.isArray(trip.photos)) {
+                const migratedPhotos = trip.photos.map(photo => {
+                    // Fix old imgs/ paths to assets/images/
+                    if (photo.startsWith('imgs/')) {
+                        const newPath = photo.replace('imgs/', 'assets/images/');
+                        console.log(`Migrating image path: ${photo} -> ${newPath}`);
+                        return newPath;
+                    }
+                    return photo;
+                });
+                
+                return {
+                    ...trip,
+                    photos: migratedPhotos
+                };
+            }
+            return trip;
+        });
+    }
 
     getDefaultTrips() {
-        // Sample data for demonstration
+        // Sample data for demonstration with correct image paths
         return [
             {
                 id: "1",
                 location: "Mt Holy Cross",
                 date: "2024-08-15",
                 members: ["Tyler", "Brendan", "Sarah", "Mike"],
-                photos: ["imgs/hc_summit.jpg", "imgs/hc_group.JPG", "imgs/hc_trees.JPG"],
+                photos: ["assets/images/hc_summit.jpg", "assets/images/hc_group.JPG", "assets/images/hc_trees.JPG"],
                 description: "Epic 4-hour ridge scramble to one of Colorado's most challenging 14ers. Perfect weather and incredible views!",
                 distance: "11 miles",
                 elevation: "5,600 ft gain",
@@ -87,7 +112,7 @@ class TripLog {
                 location: "Gore Range Backpacking",
                 date: "2024-07-22",
                 members: ["Alex", "Jordan", "Casey", "Morgan", "Sam"],
-                photos: ["imgs/gorebackpacking.jpeg"],
+                photos: ["assets/images/gorebackpacking.jpeg"],
                 description: "3-day backpacking adventure in the Gore Range with multiple summit attempts. Amazing alpine lakes and ridge walks.",
                 distance: "25 miles",
                 elevation: "4,200 ft gain",
@@ -98,7 +123,7 @@ class TripLog {
                 location: "Longs Peak",
                 date: "2024-09-03",
                 members: ["Tyler", "Emma", "Josh", "Riley"],
-                photos: ["imgs/longs-summit.JPG"],
+                photos: ["assets/images/longs-summit.JPG"],
                 description: "Classic Colorado 14er via the Keyhole Route. Started at 3 AM for sunrise summit push!",
                 distance: "14.5 miles",
                 elevation: "5,100 ft gain",
@@ -163,7 +188,7 @@ class TripLog {
                     description: trip.description || 'No description available'
                 };
                 
-                const firstPhoto = safeTrip.photos.length > 0 ? safeTrip.photos[0] : 'imgs/BMC_Logo.png';
+                const firstPhoto = safeTrip.photos.length > 0 ? safeTrip.photos[0] : 'assets/images/BMC_Logo.png';
                 const memberCount = safeTrip.members.length;
                 const shortDescription = safeTrip.description.length > 100 
                     ? safeTrip.description.substring(0, 100) + '...'
