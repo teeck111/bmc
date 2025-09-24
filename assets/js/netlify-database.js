@@ -141,6 +141,60 @@ class NetlifyDatabaseManager {
         }
     }
 
+    // Delete trip
+    async deleteTrip(tripId) {
+        try {
+            console.log('Deleting trip via Netlify function:', tripId);
+            
+            const response = await fetch(`${this.baseUrl}/delete-trip`, {
+                method: 'DELETE',
+                headers: this.getHeaders(),
+                body: JSON.stringify({ id: tripId })
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(`HTTP ${response.status}: ${errorData.error || response.statusText}`);
+            }
+
+            const data = await response.json();
+            console.log('Trip deleted successfully:', tripId);
+            
+            return data.success;
+        } catch (error) {
+            console.error('Error deleting trip via Netlify:', error);
+            // Fallback to localStorage
+            return this.deleteTripFromLocalStorage(tripId);
+        }
+    }
+
+    // Update trip
+    async updateTrip(tripId, tripData) {
+        try {
+            console.log('Updating trip via Netlify function:', tripId, tripData.location);
+            
+            const response = await fetch(`${this.baseUrl}/update-trip`, {
+                method: 'PUT',
+                headers: this.getHeaders(),
+                body: JSON.stringify({ id: tripId, ...tripData })
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(`HTTP ${response.status}: ${errorData.error || response.statusText}`);
+            }
+
+            const data = await response.json();
+            console.log('Trip updated successfully:', data.trip.location);
+            
+            return data.trip;
+        } catch (error) {
+            console.error('Error updating trip via Netlify:', error);
+            // Fallback to localStorage
+            return this.updateTripInLocalStorage(tripId, tripData);
+        }
+    }
+
     // Upload multiple photos with progress
     async uploadPhotos(files, tripId, onProgress = null) {
         if (!files || files.length === 0) return [];
@@ -190,6 +244,35 @@ class NetlifyDatabaseManager {
         localStorage.setItem('bmcTrips', JSON.stringify(trips));
         console.log('Trip saved to localStorage fallback');
         return newTrip;
+    }
+
+    deleteTripFromLocalStorage(tripId) {
+        const trips = this.getTripsFromLocalStorage();
+        const filteredTrips = trips.filter(t => t.id.toString() !== tripId.toString());
+        localStorage.setItem('bmcTrips', JSON.stringify(filteredTrips));
+        console.log('Trip deleted from localStorage fallback:', tripId);
+        return true;
+    }
+
+    updateTripInLocalStorage(tripId, tripData) {
+        const trips = this.getTripsFromLocalStorage();
+        const tripIndex = trips.findIndex(t => t.id.toString() === tripId.toString());
+        
+        if (tripIndex !== -1) {
+            const updatedTrip = {
+                ...trips[tripIndex],
+                ...tripData,
+                id: tripId,
+                dateModified: new Date().toISOString()
+            };
+            trips[tripIndex] = updatedTrip;
+            localStorage.setItem('bmcTrips', JSON.stringify(trips));
+            console.log('Trip updated in localStorage fallback:', tripId);
+            return updatedTrip;
+        } else {
+            console.error('Trip not found for update in localStorage:', tripId);
+            return null;
+        }
     }
 
     getDefaultTrips() {

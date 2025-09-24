@@ -299,9 +299,9 @@ class AddTrip {
             }
 
             if (this.isEditMode && this.editingTripId) {
-                // Update existing trip using database manager (not implemented yet for Netlify)
-                console.warn('Edit mode not yet implemented for Netlify backend');
-                return this.saveToLocalStorage(tripData);
+                // Update existing trip using Netlify database manager
+                const updatedTrip = await dbMgr.updateTrip(this.editingTripId, tripData);
+                return updatedTrip !== null;
             } else {
                 // Add new trip using Netlify database manager
                 const newTrip = await dbMgr.addTrip(tripData);

@@ -48,6 +48,8 @@
                         <button class="btn btn-success mb-2 w-100" onclick="testGetTrips()">Test get-trips</button>
                         <button class="btn btn-warning mb-2 w-100" onclick="testAddTrip()">Test add-trip</button>
                         <button class="btn btn-info mb-2 w-100" onclick="testUploadPhoto()">Test upload-photos</button>
+                        <button class="btn btn-secondary mb-2 w-100" onclick="testUpdateTrip()">Test update-trip</button>
+                        <button class="btn btn-danger mb-2 w-100" onclick="testDeleteTrip()">Test delete-trip</button>
                         <div id="functionResults" class="mt-3"></div>
                     </div>
                 </div>
@@ -196,6 +198,72 @@
                     console.error('upload-photos test error:', error);
                 }
             });
+        }
+
+        async function testUpdateTrip() {
+            addResult('functionResults', '⏳ Testing update-trip...', true);
+            try {
+                if (!window.dbManager) {
+                    throw new Error('Database manager not initialized');
+                }
+                
+                // First get trips to find one to update
+                const trips = await window.dbManager.getTrips();
+                if (trips.length === 0) {
+                    addResult('functionResults', '❌ No trips available to update', false);
+                    return;
+                }
+                
+                const tripToUpdate = trips[0];
+                const updatedData = {
+                    location: tripToUpdate.location + ' (Updated)',
+                    date: tripToUpdate.date,
+                    members: tripToUpdate.members,
+                    description: tripToUpdate.description + ' [Updated via debug test]',
+                    distance: tripToUpdate.distance,
+                    elevation: tripToUpdate.elevation,
+                    duration: tripToUpdate.duration,
+                    photos: tripToUpdate.photos
+                };
+                
+                const result = await window.dbManager.updateTrip(tripToUpdate.id, updatedData);
+                addResult('functionResults', `✅ Trip updated successfully! Location: ${result.location}`, true);
+                console.log('Test update result:', result);
+            } catch (error) {
+                addResult('functionResults', `❌ update-trip failed: ${error.message}`, false);
+                console.error('update-trip test error:', error);
+            }
+        }
+
+        async function testDeleteTrip() {
+            addResult('functionResults', '⏳ Testing delete-trip...', true);
+            try {
+                if (!window.dbManager) {
+                    throw new Error('Database manager not initialized');
+                }
+                
+                // First get trips to find one to delete
+                const trips = await window.dbManager.getTrips();
+                const testTrips = trips.filter(t => t.location && t.location.includes('Test'));
+                
+                if (testTrips.length === 0) {
+                    addResult('functionResults', '❌ No test trips available to delete (will not delete real trips)', false);
+                    return;
+                }
+                
+                const tripToDelete = testTrips[0];
+                const result = await window.dbManager.deleteTrip(tripToDelete.id);
+                
+                if (result) {
+                    addResult('functionResults', `✅ Trip deleted successfully! ID: ${tripToDelete.id}`, true);
+                    console.log('Test delete result:', result);
+                } else {
+                    addResult('functionResults', '❌ Delete returned false', false);
+                }
+            } catch (error) {
+                addResult('functionResults', `❌ delete-trip failed: ${error.message}`, false);
+                console.error('delete-trip test error:', error);
+            }
         }
     </script>
 </body>
