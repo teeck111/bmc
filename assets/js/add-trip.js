@@ -295,7 +295,7 @@ class AddTrip {
     async saveTripData(tripData) {
         try {
             // Check if dbManager is available, if not use localStorage fallback
-            const dbMgr = window.dbManager || dbManager;
+            const dbMgr = window.gitHubDbManager || window.dbManager;
             if (typeof dbMgr === 'undefined' || !dbMgr) {
                 console.warn('Database manager not available, using localStorage fallback');
                 return this.saveToLocalStorage(tripData);
@@ -396,7 +396,7 @@ class AddTrip {
         if (files.length === 0) return;
         
         // Check if GitHub database manager is available
-        const dbMgr = window.dbManager || window.gitHubDbManager;
+        const dbMgr = window.gitHubDbManager || window.dbManager;
         
         if (!dbMgr) {
             alert('Database manager not available. Please refresh the page and ensure GitHub is configured.');

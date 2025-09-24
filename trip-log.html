@@ -167,17 +167,25 @@
     <script src="assets/js/github-database.js?v=1"></script>
     <script src="assets/js/trip-log.js?v=4"></script>
     <script>
-        // Auto-configure GitHub API from localStorage
-        window.addEventListener('load', () => {
+        // Auto-configure GitHub API as early as possible
+        function configureGitHubAPI() {
             const githubToken = localStorage.getItem('bmc-github-token');
             
             if (githubToken && window.configureAPIs) {
                 window.configureAPIs(githubToken);
                 console.log('✅ GitHub API auto-configured from localStorage');
+                return true;
             } else {
                 console.log('⚠️ GitHub API not configured. Visit setup-apis.html to configure.');
+                return false;
             }
-        });
+        }
+        
+        // Try to configure immediately and retry if needed
+        let configured = configureGitHubAPI();
+        if (!configured) {
+            setTimeout(() => configureGitHubAPI(), 100);
+        }
     </script>
 </body>
 

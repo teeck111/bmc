@@ -250,29 +250,44 @@
     <script src="assets/js/github-database.js?v=1"></script>
     <script src="assets/js/add-trip.js?v=6"></script>
     <script>
-        // Auto-configure APIs from localStorage
-        window.addEventListener('load', () => {
+        // Ensure GitHub API is configured as early as possible
+        function configureGitHubAPI() {
             const githubToken = localStorage.getItem('bmc-github-token');
             
             if (githubToken && window.configureAPIs) {
                 window.configureAPIs(githubToken);
                 console.log('✅ GitHub API auto-configured from localStorage');
+                return true;
             } else {
                 console.log('⚠️ GitHub API not configured. Visit setup-apis.html to configure.');
-                // Show setup notice
-                const notice = document.createElement('div');
-                notice.className = 'alert alert-warning position-fixed';
-                notice.style.cssText = 'top: 20px; right: 20px; z-index: 9999; max-width: 350px;';
-                notice.innerHTML = `
-                    <h6>⚠️ GitHub Setup Required</h6>
-                    <p class="mb-2">To upload photos and save trips, you need to configure your GitHub token.</p>
-                    <a href="setup-apis.html" class="btn btn-warning btn-sm">
-                        <i class="fas fa-cog"></i> Setup GitHub
-                    </a>
-                `;
-                document.body.appendChild(notice);
+                return false;
             }
-        });
+        }
+        
+        // Try to configure immediately
+        let configured = configureGitHubAPI();
+        
+        // If not configured, try again when scripts are loaded
+        if (!configured) {
+            setTimeout(() => {
+                configured = configureGitHubAPI();
+                
+                // Show notice if still not configured
+                if (!configured) {
+                    const notice = document.createElement('div');
+                    notice.className = 'alert alert-warning position-fixed';
+                    notice.style.cssText = 'top: 20px; right: 20px; z-index: 9999; max-width: 350px;';
+                    notice.innerHTML = `
+                        <h6>⚠️ GitHub Setup Required</h6>
+                        <p class="mb-2">To upload photos and save trips, you need to configure your GitHub token.</p>
+                        <a href="setup-apis.html" class="btn btn-warning btn-sm">
+                            <i class="fas fa-cog"></i> Setup GitHub
+                        </a>
+                    `;
+                    document.body.appendChild(notice);
+                }
+            }, 100);
+        }
     </script>
 </body>
 
