@@ -3,8 +3,6 @@ test-*.html
 debug-*.html
 production-tests.html
 cleanup-for-production.sh
-firebase-rules-production.md
-firebase-storage-rules-manual.txt
 
 # Logs and temporary files
 *.log
@@ -19,11 +17,6 @@ Thumbs.db
 *.swo
 *~
 
-# Firebase local files
-.firebase/
-firebase-debug.log
-firestore-debug.log
-
 # Node modules (if you add them later)
 node_modules/
 npm-debug.log
@@ -34,13 +27,7 @@ yarn-error.log
 .env
 .env.local
 .env.production
-firebase-config-private.js
 
 # Backup files
 *.bak
 *.backup
-
-# Security note: Firebase client config is normally safe to expose
-# as it's designed for client-side use with proper security rules
-# However, we recommend monitoring usage and setting up Firebase
-# domain restrictions in the console for additional security

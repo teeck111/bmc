@@ -1,5 +1,5 @@
 // GitHub Database Manager
-// Simple, reliable alternative to Firebase
+// Simple, reliable database and photo storage
 
 console.log('Loading GitHub database manager...');
 

@@ -395,24 +395,11 @@ class AddTrip {
         
         if (files.length === 0) return;
         
-        // Check if Firebase Storage is available
-        const dbMgr = window.dbManager || dbManager;
-        console.log('dbManager available:', !!dbMgr);
-        console.log('window.storage available:', !!window.storage);
-        console.log('firebase.storage available:', !!(typeof firebase !== 'undefined' && firebase.storage));
+        // Check if GitHub database manager is available
+        const dbMgr = window.dbManager || window.gitHubDbManager;
         
         if (!dbMgr) {
-            alert('Database manager not available. Please refresh the page.');
-            return;
-        }
-        
-        // Try to access Firebase Storage directly
-        try {
-            const storage = firebase.storage();
-            console.log('Firebase Storage initialized successfully');
-        } catch (error) {
-            console.error('Firebase Storage initialization failed:', error);
-            alert('Firebase Storage not available. Error: ' + error.message);
+            alert('Database manager not available. Please refresh the page and ensure GitHub is configured.');
             return;
         }
         
@@ -424,8 +411,8 @@ class AddTrip {
                 continue;
             }
             
-            if (file.size > 10 * 1024 * 1024) { // 10MB limit
-                alert(`"${file.name}" is too large (${(file.size/1024/1024).toFixed(1)}MB). Maximum size is 10MB.`);
+            if (file.size > 25 * 1024 * 1024) { // 25MB limit for GitHub
+                alert(`"${file.name}" is too large (${(file.size/1024/1024).toFixed(1)}MB). Maximum size is 25MB.`);
                 continue;
             }
             
@@ -440,10 +427,10 @@ class AddTrip {
         try {
             // Generate temporary trip ID for upload organization
             const tempTripId = this.editingTripId || `temp-${Date.now()}`;
-            console.log('Starting photo upload with tempTripId:', tempTripId);
+            console.log('Starting photo upload to GitHub with tempTripId:', tempTripId);
             console.log('Valid files to upload:', validFiles.map(f => f.name));
             
-            // Upload photos to Firebase Storage
+            // Upload photos to GitHub
             const uploadedUrls = await dbMgr.uploadPhotos(validFiles, tempTripId, 
                 (completed, total, success) => {
                     console.log(`Upload progress: ${completed}/${total}, success: ${success}`);
