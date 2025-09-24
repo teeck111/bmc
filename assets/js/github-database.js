@@ -304,7 +304,7 @@ class GitHubDatabaseManager {
         console.log('Trip deleted from GitHub successfully');
     }
 
-    // Upload photo to GitHub Issues (free unlimited storage)
+    // Upload photo to GitHub repository (free storage)
     async uploadPhoto(file, tripId = null) {
         if (!CONFIG.github.token) {
             console.warn('GitHub token not configured');
@@ -326,55 +326,18 @@ class GitHubDatabaseManager {
         try {
             console.log('Uploading photo to GitHub:', file.name, `(${(file.size/1024/1024).toFixed(2)}MB)`);
             
-            // Create a temporary issue to upload the image
-            const issueTitle = `BMC Photo Upload - ${new Date().toISOString()}`;
-            const issueBody = `Temporary issue for photo upload\n\nTrip: ${tripId || 'Unknown'}\nFile: ${file.name}\nSize: ${(file.size/1024/1024).toFixed(2)}MB`;
-            
-            // Create issue
-            const issueResponse = await fetch(`https://api.github.com/repos/${CONFIG.github.owner}/${CONFIG.github.repo}/issues`, {
-                method: 'POST',
-                headers: {
-                    'Authorization': `token ${CONFIG.github.token}`,
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    title: issueTitle,
-                    body: issueBody,
-                    labels: ['photo-upload', 'auto-generated']
-                })
-            });
-
-            if (!issueResponse.ok) {
-                throw new Error(`Failed to create issue: ${issueResponse.status}`);
-            }
-
-            const issue = await issueResponse.json();
-            const issueNumber = issue.number;
-            
-            // Upload image as attachment to the issue using GraphQL
-            // First convert file to base64
+            // Convert file to base64
             const base64 = await new Promise((resolve) => {
                 const reader = new FileReader();
                 reader.onload = () => resolve(reader.result.split(',')[1]);
                 reader.readAsDataURL(file);
             });
             
-            // Create a comment with the image attachment
-            const formData = new FormData();
-            formData.append('file', file);
-            formData.append('name', file.name);
-            formData.append('parent_id', issueNumber.toString());
-            formData.append('parent_type', 'Issue');
-            formData.append('repository_id', CONFIG.github.repo);
-            formData.append('authenticity_token', 'dummy'); // GitHub will handle this
-            
-            // Use GitHub's upload endpoint
-            const uploadUrl = `https://github.com/${CONFIG.github.owner}/${CONFIG.github.repo}/upload/policies/assets`;
-            
-            // Alternative approach: use GitHub's file upload API
+            // Create unique filename with timestamp
             const timestamp = Date.now();
             const fileName = `photos/${timestamp}-${file.name.replace(/[^a-zA-Z0-9.-]/g, '_')}`;
             
+            // Upload file to GitHub using Contents API
             const fileResponse = await fetch(`https://api.github.com/repos/${CONFIG.github.owner}/${CONFIG.github.repo}/contents/${fileName}`, {
                 method: 'PUT',
                 headers: {
@@ -384,7 +347,7 @@ class GitHubDatabaseManager {
                 body: JSON.stringify({
                     message: `Add photo: ${file.name}`,
                     content: base64,
-                    branch: 'main'
+                    branch: 'master'
                 })
             });
 
@@ -394,18 +357,6 @@ class GitHubDatabaseManager {
 
             const fileData = await fileResponse.json();
             const imageUrl = fileData.content.download_url;
-            
-            // Close the temporary issue
-            await fetch(`https://api.github.com/repos/${CONFIG.github.owner}/${CONFIG.github.repo}/issues/${issueNumber}`, {
-                method: 'PATCH',
-                headers: {
-                    'Authorization': `token ${CONFIG.github.token}`,
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    state: 'closed'
-                })
-            });
 
             console.log('Photo uploaded to GitHub successfully:', imageUrl);
             return imageUrl;
