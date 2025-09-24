@@ -2,7 +2,7 @@
   "trips": [
     {
       "location": "Four Pass Loop",
-      "date": "2025-09-14",
+      "date": "2025-09-24",
       "duration": "10 hours",
       "distance": "28 miles",
       "elevation": "7800 ft",
@@ -11,17 +11,17 @@
         "Lily",
         "Emma"
       ],
-      "description": "The Aspen Four Pass Loop! Insane day in the mountains: absurd views, great weather, and even saw some horses!",
+      "description": "The Aspen Four Pass Loop! Big day in the mountains: absurd views, great weather, and even saw some horses!",
       "photos": [
         "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1758748740423-0-IMG_8422.jpeg",
         "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1758748741933-0-IMG_4417.jpeg"
       ],
       "id": "1758748747708",
       "dateAdded": "2025-09-24T21:19:07.708Z",
-      "dateModified": "2025-09-24T21:19:07.710Z"
+      "dateModified": "2025-09-24T21:29:21.073Z"
     }
   ],
-  "lastUpdated": "2025-09-24T21:28:15.687Z",
+  "lastUpdated": "2025-09-24T21:29:21.073Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
