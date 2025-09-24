@@ -201,6 +201,13 @@ class DatabaseManager {
             
         } catch (error) {
             console.error('Error uploading photo:', error);
+            console.error('Error details:', {
+                code: error.code,
+                message: error.message,
+                name: error.name,
+                serverResponse: error.serverResponse,
+                customData: error.customData
+            });
             return null;
         }
     }

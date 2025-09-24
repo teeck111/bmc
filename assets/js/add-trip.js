@@ -440,10 +440,13 @@ class AddTrip {
         try {
             // Generate temporary trip ID for upload organization
             const tempTripId = this.editingTripId || `temp-${Date.now()}`;
+            console.log('Starting photo upload with tempTripId:', tempTripId);
+            console.log('Valid files to upload:', validFiles.map(f => f.name));
             
             // Upload photos to Firebase Storage
             const uploadedUrls = await dbMgr.uploadPhotos(validFiles, tempTripId, 
                 (completed, total, success) => {
+                    console.log(`Upload progress: ${completed}/${total}, success: ${success}`);
                     this.updateUploadProgress(completed, total);
                 }
             );
