@@ -66,8 +66,8 @@
       "location": "Longs Peak",
       "date": "2025-09-21",
       "duration": "8hours",
-      "distance": "23km",
-      "elevation": "1516m",
+      "distance": "15 miles",
+      "elevation": "5000 ft",
       "members": [
         "Finn",
         "Campbell"
@@ -81,7 +81,7 @@
       ],
       "id": "1758814538722",
       "dateAdded": "2025-09-25T15:35:38.722Z",
-      "dateModified": "2025-09-25T15:35:38.724Z"
+      "dateModified": "2025-09-25T18:25:49.651Z"
     },
     {
       "location": "Mt Holy Cross",
@@ -131,7 +131,7 @@
       "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2025-09-25T18:24:37.973Z",
+  "lastUpdated": "2025-09-25T18:25:49.651Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
