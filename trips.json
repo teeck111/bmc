@@ -12,10 +12,12 @@
         "Jamie"
       ],
       "description": "grays and torreys via kelso ridge! incredible views",
-      "photos": [],
+      "photos": [
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1758816035664-0-Adobe Express - file.jpg"
+      ],
       "id": "1758815176870",
       "dateAdded": "2025-09-25T15:46:16.870Z",
-      "dateModified": "2025-09-25T15:54:11.027Z"
+      "dateModified": "2025-09-25T16:01:00.083Z"
     },
     {
       "location": "Longs Peak",
@@ -86,7 +88,7 @@
       "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2025-09-25T15:54:11.029Z",
+  "lastUpdated": "2025-09-25T16:01:00.085Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
