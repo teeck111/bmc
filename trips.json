@@ -1,6 +1,28 @@
 {
   "trips": [
     {
+      "location": "Kelso",
+      "date": "2025-09-14",
+      "duration": "4 hours",
+      "distance": "8 miles",
+      "elevation": "3,600 ft",
+      "members": [
+        "Katie",
+        "Ella",
+        "Carlie",
+        "Spencer"
+      ],
+      "description": "Grays and Torreys via Kelso ridge in the snow",
+      "photos": [
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1758816930392-0-1000019176.jpg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1758816933765-0-1000019180.jpg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1758816937024-0-1000019175.heic"
+      ],
+      "id": "1758816949474",
+      "dateAdded": "2025-09-25T16:15:49.474Z",
+      "dateModified": "2025-09-25T16:15:49.476Z"
+    },
+    {
       "location": "Kelso's Ridge",
       "date": "2025-09-25",
       "duration": "5 hours",
@@ -88,7 +110,7 @@
       "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2025-09-25T16:01:00.085Z",
+  "lastUpdated": "2025-09-25T16:15:49.857Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
