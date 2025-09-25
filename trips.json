@@ -45,7 +45,7 @@
     },
     {
       "location": "Kelso's Ridge",
-      "date": "2025-09-25",
+      "date": "2025-09-20",
       "duration": "5 hours",
       "distance": "8 miles",
       "elevation": "3,100 feet",
@@ -60,7 +60,7 @@
       ],
       "id": "1758815176870",
       "dateAdded": "2025-09-25T15:46:16.870Z",
-      "dateModified": "2025-09-25T18:22:33.042Z"
+      "dateModified": "2025-09-25T18:24:37.973Z"
     },
     {
       "location": "Longs Peak",
@@ -131,7 +131,7 @@
       "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2025-09-25T18:23:52.303Z",
+  "lastUpdated": "2025-09-25T18:24:37.973Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
