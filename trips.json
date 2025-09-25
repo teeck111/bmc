@@ -29,7 +29,7 @@
     },
     {
       "location": "Four Pass Loop",
-      "date": "2025-09-24",
+      "date": "2025-09-14",
       "duration": "10 hours",
       "distance": "28 miles",
       "elevation": "7800 ft",
@@ -45,10 +45,10 @@
       ],
       "id": "1758748747708",
       "dateAdded": "2025-09-24T21:19:07.708Z",
-      "dateModified": "2025-09-24T21:29:21.073Z"
+      "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2025-09-24T21:33:25.585Z",
+  "lastUpdated": "2025-09-25T15:12:34.266Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
