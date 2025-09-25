@@ -23,7 +23,7 @@
     },
     {
       "location": "Kelso's Ridge",
-      "date": "2025-09-25",
+      "date": "2025-09-13",
       "duration": "4 hours",
       "distance": "8 miles",
       "elevation": "3,600 ft",
@@ -41,7 +41,7 @@
       ],
       "id": "1758816949474",
       "dateAdded": "2025-09-25T16:15:49.474Z",
-      "dateModified": "2025-09-25T18:22:06.574Z"
+      "dateModified": "2025-09-25T18:23:52.303Z"
     },
     {
       "location": "Kelso's Ridge",
@@ -131,7 +131,7 @@
       "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2025-09-25T18:22:33.042Z",
+  "lastUpdated": "2025-09-25T18:23:52.303Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
