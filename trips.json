@@ -1,6 +1,23 @@
 {
   "trips": [
     {
+      "location": "Kelso's Ridge",
+      "date": "2025-09-25",
+      "duration": "5 hours",
+      "distance": "7 miles",
+      "elevation": "3,100 feet",
+      "members": [
+        "Aidan",
+        "Daniel",
+        "Jamie"
+      ],
+      "description": "grays and torreys via kelso ridge! incredible views",
+      "photos": [],
+      "id": "1758815176870",
+      "dateAdded": "2025-09-25T15:46:16.870Z",
+      "dateModified": "2025-09-25T15:46:16.872Z"
+    },
+    {
       "location": "Longs Peak",
       "date": "2025-09-21",
       "duration": "8hours",
@@ -69,7 +86,7 @@
       "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2025-09-25T15:35:39.112Z",
+  "lastUpdated": "2025-09-25T15:46:17.213Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
