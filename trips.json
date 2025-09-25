@@ -1,6 +1,27 @@
 {
   "trips": [
     {
+      "location": "Sawtooth",
+      "date": "2025-09-01",
+      "duration": "8 hours",
+      "distance": "10 miles",
+      "elevation": "3,900 ft",
+      "members": [
+        "Katie",
+        "Ilan",
+        "Ben",
+        "Chloe",
+        "Ariella"
+      ],
+      "description": "Mt Evans and Mt Bierdstat via sawtooth ridge! Cowboy camped the night before and woke up covered in frost",
+      "photos": [
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1758817289344-0-f2905b81-4c4a-4a37-b5c6-918dba1883c5-1_all_26390.jpg"
+      ],
+      "id": "1758817340116",
+      "dateAdded": "2025-09-25T16:22:20.116Z",
+      "dateModified": "2025-09-25T16:22:20.116Z"
+    },
+    {
       "location": "Kelso",
       "date": "2025-09-14",
       "duration": "4 hours",
@@ -110,7 +131,7 @@
       "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2025-09-25T16:15:49.857Z",
+  "lastUpdated": "2025-09-25T16:22:20.300Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
