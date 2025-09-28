@@ -190,6 +190,31 @@ body {
       }
   }
 
+  /* Fix spacing between scattered words and Our Story section */
+  @media (min-width: 768px) {
+      .scattered-words {
+          height: 750px !important;
+      }
+  }
+  
+  @media (min-width: 992px) {
+      .scattered-words {
+          height: 900px !important;
+      }
+  }
+  
+  @media (min-width: 1200px) {
+      .scattered-words {
+          height: 1000px !important;
+      }
+  }
+  
+  @media (min-width: 1400px) {
+      .scattered-words {
+          height: 1100px !important;
+      }
+  }
+
   /* Increase font size for "Big Mountain Club" */
   .navbar-brand {
       font-size: 3.2vw !important;

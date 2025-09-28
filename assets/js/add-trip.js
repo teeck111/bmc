@@ -408,8 +408,8 @@ class AddTrip {
                 continue;
             }
             
-            if (file.size > 25 * 1024 * 1024) { // 25MB limit
-                alert(`"${file.name}" is too large (${(file.size/1024/1024).toFixed(1)}MB). Maximum size is 25MB.`);
+            if (file.size > 20 * 1024 * 1024) { // 20MB limit
+                alert(`"${file.name}" is too large (${(file.size/1024/1024).toFixed(1)}MB). Maximum size is 20MB.`);
                 continue;
             }
             

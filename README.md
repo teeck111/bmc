@@ -1,20 +1,20 @@
 # 🏔️ Big Mountain Club Website
 
-**A modern, Firebase-powered website for the Big Mountain Club - connecting adventure seekers for epic outdoor experiences.**
+**A modern, Netlify-powered website for the Big Mountain Club - connecting adventure seekers for epic outdoor experiences.**
 
-[![Live Site](https://img.shields.io/badge/Live%20Site-bigmtnclub.com-blue)](https://bigmtnclub.com)
-[![Firebase](https://img.shields.io/badge/Firebase-Deployed-orange)](https://firebase.google.com)
-[![Security](https://img.shields.io/badge/Security-Locked%20Down-green)](#security)
+[![Live Site](https://img.shields.io/badge/Live%20Site-bmcwebsite.netlify.app-blue)](https://bmcwebsite.netlify.app)
+[![Netlify](https://img.shields.io/badge/Netlify-Deployed-00C7B7)](https://netlify.com)
+[![Security](https://img.shields.io/badge/Security-Serverless%20Functions-green)](#security)
 
 ## 🌟 Features
 
 - **📱 Responsive Design**: Mobile-first design built with Bootstrap 5
-- **🔥 Firebase Backend**: Real-time database and secure file storage
-- **📸 Photo Uploads**: Direct photo uploads to Firebase Storage  
-- **🛡️ Security**: Production-ready security rules and data validation
-- **🎯 Admin Panel**: Password-protected admin controls for content management
-- **📊 Trip Logging**: Complete trip logging system with filtering and search
-- **⚡ Performance**: Optimized for speed with CDN assets and caching
+- **⚡ Netlify Functions**: Serverless backend with GitHub data storage
+- **📸 Photo Uploads**: Direct photo uploads to GitHub repository (20MB limit)
+- **🛑️ Security**: Password-protected functions with club authentication
+- **🎯 Admin Panel**: Full CRUD operations for trip management
+- **📊 Trip Logging**: Real-time trip display with filtering and search
+- **🚀 Performance**: Static site with serverless functions, optimized deployments
 
 ## 🗂️ Project Structure
 
@@ -22,56 +22,56 @@
 bmc/
 ├── 📄 Main Pages
 │   ├── index.html              # Homepage with member showcase
-│   ├── trip-log.html          # Trip log and admin panel
-│   ├── add-trip.html          # Trip submission form
-│   ├── planning.html          # Trip planning resources
-│   ├── join.html             # Membership information
-│   └── training.html         # Training resources
+│   ├── trip-log.html           # Trip log and admin panel
+│   ├── add-trip.html           # Trip submission form
+│   ├── planning.html           # Trip planning resources
+│   ├── join.html               # Membership information
+│   └── training.html           # Training resources
 │
-├── 📁 assets/                 # Static assets
+├── 📁 assets/                   # Static assets
 │   ├── css/
-│   │   └── styles.css        # Main stylesheet
+│   │   └── styles.css          # Main stylesheet
 │   ├── js/
-│   │   ├── firebase-config.js # Firebase configuration
-│   │   ├── trip-log.js       # Trip log functionality
-│   │   ├── add-trip.js       # Trip submission logic
-│   │   └── test-suite.js     # Automated testing
-│   └── images/               # All site images
-│       ├── bmclogo.jpeg      # Site logo/favicon
-│       ├── BMC_Logo.png      # Alternative logo
-│       └── [trip-photos]/    # Member and trip photos
+│   │   ├── netlify-database.js # Netlify functions client
+│   │   ├── trip-log.js         # Trip log functionality
+│   │   ├── add-trip.js         # Trip submission logic
+│   │   └── test-suite.js       # Automated testing
+│   └── images/                 # All site images
+│       ├── bmclogo.jpeg        # Site logo/favicon
+│       ├── BMC_Logo.png        # Alternative logo
+│       └── [trip-photos]/      # Member and trip photos
 │
-├── 📁 config/                # Configuration files
-│   ├── firestore.rules       # Firestore security rules
-│   ├── storage.rules         # Storage security rules
-│   └── firestore.indexes.json # Database indexes
+├── 📁 netlify/                 # Netlify configuration
+│   └── functions/              # Serverless functions
+│       ├── get-trips.js        # Load trips from GitHub
+│       ├── add-trip.js         # Add new trips to GitHub
+│       ├── update-trip.js      # Update existing trips
+│       ├── delete-trip.js      # Delete trips
+│       └── upload-photos.js    # Photo upload to GitHub
 │
-├── 📁 docs/                  # Documentation
-│   ├── FIREBASE_SETUP.md     # Firebase initial setup guide
-│   ├── FIREBASE_SECURITY_LOCKDOWN.md # Security implementation
-│   ├── FIREBASE_STORAGE_SETUP.md     # Photo upload setup
-│   ├── DEPLOYMENT_GUIDE.md   # Production deployment guide
-│   ├── DEPLOYMENT_CHECKLIST.md # Pre-deployment checklist
-│   └── WARP.md              # AI assistant context
+├── 📁 docs/                    # Documentation
+│   ├── NETLIFY_DEPLOYMENT.md   # Netlify deployment guide
+│   ├── PROJECT_STATUS.md       # Current functionality status
+│   ├── FIX_DEPLOYMENTS.md      # Deployment optimization guide
+│   └── WARP.md                 # AI assistant context
 │
-├── 📁 scripts/              # Utility scripts
-│   ├── cleanup-for-production.sh # Production cleanup script
-│   └── add-trip-backup.js   # Backup of trip submission code
-│
-├── 📁 tests/                # Test files (not deployed)
-│   ├── production-tests.html # Comprehensive production test suite
-│   ├── test-suite.html      # Legacy test file
-│   ├── debug-add-trip.html  # Debug interface for trip submission
-│   └── clean-storage.html   # Storage cleanup utility
+├── 📁 debug/                   # Debug and testing tools
+│   ├── debug-netlify.html      # Netlify functions testing
+│   └── test-functionality.html # Local functionality testing
 │
 ├── ⚙️ Configuration
-│   ├── firebase.json          # Firebase project configuration
-│   ├── .gitignore            # Git ignore rules
-│   ├── CNAME                 # Custom domain configuration
-│   └── README.md            # This file
+│   ├── netlify.toml            # Netlify build configuration
+│   ├── package.json            # Dependencies for Netlify functions
+│   ├── .gitignore              # Git ignore rules
+│   ├── CNAME                   # Custom domain configuration
+│   └── README.md               # This file
+│
+├── 📁 data/                    # GitHub-stored data
+│   ├── trips.json              # Trip data (auto-generated)
+│   └── photos/                 # Uploaded photos (auto-generated)
 │
 └── 📊 Git
-    └── .git/                 # Git repository data
+    └── .git/                   # Git repository data
 ```
 
 ## 🚀 Quick Start
@@ -90,48 +90,42 @@ python3 -m http.server 8000
 
 ### Production Deployment
 ```bash
-# Test everything works
+# Test everything works locally
 python3 -m http.server 8000
 
-# Deploy to live site (GitHub Pages + SquareSpace)
+# Deploy to Netlify (automatic)
 git add .
 git commit -m "Your update message"
-git push origin main
+git push origin master
 ```
 
-Your live site at [bigmtnclub.com](https://bigmtnclub.com) will update automatically within minutes.
+Your live site at [bmcwebsite.netlify.app](https://bmcwebsite.netlify.app) updates automatically via Netlify CI/CD.
 
 ## 🔐 Security
 
 ### Current Security Level: **Production Ready** 🟢
 
-- ✅ **Input Validation**: All form data validated before storage
-- ✅ **File Upload Security**: Images only, 10MB limit, safe file types
-- ✅ **Access Controls**: Admin-only edit/delete capabilities
-- ✅ **Spam Protection**: Data size limits and format validation
-- ✅ **Firebase Rules**: Deployed and active security rules
+- ✅ **Serverless Functions**: Password-protected API endpoints
+- ✅ **File Upload Security**: Images only, 20MB limit, GitHub storage
+- ✅ **Access Controls**: Admin-only edit/delete capabilities  
+- ✅ **Input Validation**: All form data validated client and server-side
+- ✅ **Environment Variables**: Secure token storage in Netlify
+- ✅ **CORS Protection**: Proper cross-origin request handling
 
 ### Authentication
-- **Trip Submission**: Password protected (`BigMountain2024`)
-- **Admin Access**: Secret key sequence + password (`admin` → `AdminBMC2024`)
+- **API Security**: All functions require club password header
 
-## 🛠️ Admin Guide
 
-### Adding/Editing Trips
-1. Go to [Trip Log](https://bigmtnclub.com/trip-log.html)
-2. Type "admin" to unlock admin mode
-3. Enter admin password: `AdminBMC2024`
-4. Use edit/delete buttons on trip cards
 
 ### Managing Photos
-- Photos automatically upload to Firebase Storage
-- Located in `/trip-photos/` folder
-- Accessible via Firebase Console for management
+- Photos automatically upload to GitHub repository
+- Located in `/photos/` folder in the repo
+- Accessible via GitHub web interface or Git
 
 ### Monitoring
-- **Firebase Console**: Monitor usage and data
-- **GitHub Actions**: Track deployments  
-- **Site Analytics**: Available if Google Analytics added
+- **Netlify Dashboard**: Monitor deployments and function logs
+- **GitHub Repository**: Track all data changes and commits
+- **Debug Tools**: Use `/debug-netlify.html` for function testing
 
 ## 🧪 Testing
 
@@ -140,16 +134,19 @@ Your live site at [bigmtnclub.com](https://bigmtnclub.com) will update automatic
 # Start local server
 python3 -m http.server 8000
 
-# Run comprehensive tests
-open http://localhost:8000/tests/production-tests.html
+# Run local functionality tests
+open http://localhost:8000/test-functionality.html
+
+# Test Netlify functions (requires deployment)
+open https://your-site.netlify.app/debug-netlify.html
 ```
 
 Tests cover:
-- Security validation
-- All functionality
-- Performance benchmarks
+- Netlify functions integration
+- Trip CRUD operations
+- Photo upload functionality
+- Admin authentication
 - Mobile compatibility
-- Firebase integration
 
 ### Manual Testing Checklist
 - [ ] Homepage loads correctly
@@ -164,51 +161,56 @@ Tests cover:
 
 ### Technologies Used
 - **Frontend**: HTML5, CSS3, JavaScript (ES6+)
-- **Framework**: Bootstrap 5.3.3
-- **Database**: Firebase Firestore
-- **Storage**: Firebase Storage  
-- **Hosting**: GitHub Pages
-- **Domain**: SquareSpace DNS → GitHub Pages
+- **Framework**: Bootstrap 5.3.3  
+- **Backend**: Netlify Serverless Functions
+- **Database**: GitHub Repository (JSON files)
+- **Storage**: GitHub Repository (for photos)
+- **Hosting**: Netlify
+- **Domain**: Custom domain via Netlify
 - **Icons**: Font Awesome 6.0
 - **Fonts**: Google Fonts (Space Grotesk)
 
 ### Key Features Implementation
-- **Real-time Data**: Firebase Firestore with offline support
-- **Photo Management**: Direct Firebase Storage integration
-- **Security**: Multi-layer validation (client + Firebase rules)
-- **Performance**: CDN assets, image optimization, caching headers
+- **Data Storage**: GitHub API for persistent JSON storage
+- **Photo Management**: Direct GitHub repository integration (20MB limit)
+- **Security**: Password-protected serverless functions
+- **Performance**: Static site + serverless functions, optimized build process
+- **Deployment**: Automatic CI/CD with build optimization
 
 ## 🚨 Emergency Procedures
 
 ### Site Down
-1. Check [GitHub Pages status](https://www.githubstatus.com/)
-2. Verify domain settings in SquareSpace
-3. Check recent commits for issues
+1. Check [Netlify status](https://www.netlifystatus.com/)
+2. Verify domain settings in Netlify dashboard
+3. Check recent commits and deployments
+4. Review Netlify function logs for errors
 
-### Firebase Issues
+### Function Issues
 ```bash
-# Emergency lockdown
-firebase deploy --only firestore:rules  # Deploy restrictive rules
+# Check function logs in Netlify dashboard
+# Environment variables in Site Settings > Environment Variables
+# Test individual functions via debug-netlify.html
 ```
 
 ### Rollback Changes
 ```bash
 git revert [commit-hash]  # Revert specific commit
-git push origin main      # Deploy rollback
+git push origin master    # Deploy rollback automatically
 ```
 
 ## 📞 Support
 
 ### Resources
-- **Firebase Console**: [console.firebase.google.com](https://console.firebase.google.com)
-- **GitHub Repository**: [Your repo URL]
-- **Domain Management**: SquareSpace account
+- **Netlify Dashboard**: [app.netlify.com](https://app.netlify.com)
+- **GitHub Repository**: [github.com/teeck111/bmc](https://github.com/teeck111/bmc)
+- **Function Debugging**: Use `/debug-netlify.html` on live site
 - **Documentation**: `/docs/` folder
 
 ### Common Issues
-- **Path Updates**: After reorganization, ensure all paths are correct
+- **Environment Variables**: Check all required vars are set in Netlify
+- **Function Timeouts**: Large photos may timeout, use smaller images
 - **Cache Issues**: Use Ctrl+F5 (or Cmd+Shift+R on Mac) for hard refresh
-- **Firebase Limits**: Monitor usage in Firebase Console
+- **Build Limits**: Monitor build minutes in Netlify dashboard
 
 ## 🎯 Future Enhancements
 

@@ -73,9 +73,9 @@ exports.handler = async (event, context) => {
           fileContent = photo.data; // Already base64
         }
 
-        // Validate file size (25MB limit)
+        // Validate file size (20MB limit)
         const fileSizeBytes = (fileContent.length * 3) / 4; // Rough base64 to bytes conversion
-        if (fileSizeBytes > 25 * 1024 * 1024) {
+        if (fileSizeBytes > 20 * 1024 * 1024) {
           errors.push(`File ${photo.filename || photo.name} too large (${(fileSizeBytes/1024/1024).toFixed(1)}MB)`);
           continue;
         }
