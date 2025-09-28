@@ -1,19 +1,114 @@
 {
   "trips": [
     {
-      "location": "test",
-      "date": "2025-09-24",
-      "duration": "",
-      "distance": "test",
-      "elevation": "test",
+      "location": "Sawtooth",
+      "date": "2025-09-01",
+      "duration": "8 hours",
+      "distance": "10 miles",
+      "elevation": "3,900 ft",
       "members": [
-        "test"
+        "Katie",
+        "Ilan",
+        "Ben",
+        "Chloe",
+        "Ariella"
       ],
-      "description": "test",
-      "photos": [],
-      "id": "1758748809194",
-      "dateAdded": "2025-09-24T21:20:09.194Z",
-      "dateModified": "2025-09-24T21:20:09.194Z"
+      "description": "Mt Evans and Mt Bierdstat via sawtooth ridge! Cowboy camped the night before and woke up covered in frost",
+      "photos": [
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1758817289344-0-f2905b81-4c4a-4a37-b5c6-918dba1883c5-1_all_26390.jpg"
+      ],
+      "id": "1758817340116",
+      "dateAdded": "2025-09-25T16:22:20.116Z",
+      "dateModified": "2025-09-25T16:22:20.116Z"
+    },
+    {
+      "location": "Kelso's Ridge",
+      "date": "2025-09-13",
+      "duration": "4 hours",
+      "distance": "8 miles",
+      "elevation": "3,600 ft",
+      "members": [
+        "Katie",
+        "Ella",
+        "Carlie",
+        "Spencer"
+      ],
+      "description": "Grays and Torreys via Kelso ridge in the snow",
+      "photos": [
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1758816930392-0-1000019176.jpg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1758816933765-0-1000019180.jpg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1758816937024-0-1000019175.heic"
+      ],
+      "id": "1758816949474",
+      "dateAdded": "2025-09-25T16:15:49.474Z",
+      "dateModified": "2025-09-25T18:23:52.303Z"
+    },
+    {
+      "location": "Kelso's Ridge",
+      "date": "2025-09-20",
+      "duration": "5 hours",
+      "distance": "8 miles",
+      "elevation": "3,100 feet",
+      "members": [
+        "Aidan",
+        "Daniel",
+        "Jamie"
+      ],
+      "description": "grays and torreys via kelso ridge! incredible views",
+      "photos": [
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1758816035664-0-Adobe Express - file.jpg"
+      ],
+      "id": "1758815176870",
+      "dateAdded": "2025-09-25T15:46:16.870Z",
+      "dateModified": "2025-09-25T18:24:37.973Z"
+    },
+    {
+      "location": "Longs Peak",
+      "date": "2025-09-21",
+      "duration": "8hours",
+      "distance": "15 miles",
+      "elevation": "5000 ft",
+      "members": [
+        "Finn",
+        "Campbell"
+      ],
+      "description": "Winters ascent of longs peak. 3:20 departure reached the keyhole at 5:30. Sun came up as we went along the ledges. Lots of snow up in the trough, took an alternate route at the home stretch to avoid the ice!",
+      "photos": [
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1758814494692-0-IMG_9046.jpeg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1758814496695-0-IMG_5057.jpeg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1758814498779-0-IMG_9066.jpeg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1758814519263-0-IMG_9044.jpeg"
+      ],
+      "id": "1758814538722",
+      "dateAdded": "2025-09-25T15:35:38.722Z",
+      "dateModified": "2025-09-25T18:25:49.651Z"
+    },
+    {
+      "location": "Mt Holy Cross",
+      "date": "2024-10-05",
+      "duration": "10 hours",
+      "distance": "14 miles",
+      "elevation": "3000",
+      "members": [
+        "Tyler",
+        "Holden",
+        "Ollie",
+        "Oliver",
+        "Joey",
+        "Brendan",
+        "Campbell",
+        "Owen",
+        "David",
+        "Mason"
+      ],
+      "description": "First ever club trip and everyone summitted!",
+      "photos": [
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1758749599164-0-IMG_8255.jpeg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1758749601181-0-IMG_0034.jpeg"
+      ],
+      "id": "1758749605249",
+      "dateAdded": "2025-09-24T21:33:25.249Z",
+      "dateModified": "2025-09-24T21:33:25.251Z"
     },
     {
       "location": "Four Pass Loop",
@@ -26,17 +121,17 @@
         "Lily",
         "Emma"
       ],
-      "description": "The Aspen Four Pass Loop! Insane day in the mountains: absurd views, great weather, and even saw some horses!",
+      "description": "The Aspen Four Pass Loop! Big day in the mountains: absurd views, great weather, and even saw some horses!",
       "photos": [
         "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1758748740423-0-IMG_8422.jpeg",
         "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1758748741933-0-IMG_4417.jpeg"
       ],
       "id": "1758748747708",
       "dateAdded": "2025-09-24T21:19:07.708Z",
-      "dateModified": "2025-09-24T21:19:07.710Z"
+      "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2025-09-24T21:20:09.383Z",
+  "lastUpdated": "2025-09-25T18:25:49.651Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
