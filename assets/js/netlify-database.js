@@ -90,7 +90,13 @@ class NetlifyDatabaseManager {
     // Upload single photo
     async uploadPhoto(file, tripId = null) {
         try {
-            console.log(`Uploading photo via Netlify: ${file.name} (${(file.size/1024/1024).toFixed(2)}MB)`);
+            const fileSizeMB = (file.size/1024/1024).toFixed(2);
+            console.log(`Uploading photo via Netlify: ${file.name} (${fileSizeMB}MB)`);
+            
+            // Check Netlify function payload limit (6MB) before processing
+            if (file.size > 6 * 1024 * 1024) {
+                throw new Error(`File ${file.name} is too large (${fileSizeMB}MB). Netlify functions are limited to 6MB per request.`);
+            }
             
             // Convert file to base64
             const base64 = await new Promise((resolve) => {

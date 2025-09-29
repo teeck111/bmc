@@ -33,14 +33,19 @@ exports.handler = async (event, context) => {
   }
 
   try {
+    console.log(`Function started: ${new Date().toISOString()}`);
+    console.log(`Request size: ${Buffer.byteLength(event.body || '', 'utf8')} bytes`);
+    
     let photos = [];
     
     // Handle multipart form data (file uploads)
     if (event.headers['content-type'] && event.headers['content-type'].includes('multipart/form-data')) {
+      console.log('Parsing multipart data...');
       const result = await multipart.parse(event);
       photos = result.files || [];
     } else {
       // Handle JSON data (base64 images)
+      console.log('Parsing JSON data...');
       const body = JSON.parse(event.body);
       photos = body.photos || [];
     }
@@ -73,10 +78,15 @@ exports.handler = async (event, context) => {
           fileContent = photo.data; // Already base64
         }
 
-        // Validate file size (20MB limit)
-        const fileSizeBytes = (fileContent.length * 3) / 4; // Rough base64 to bytes conversion
-        if (fileSizeBytes > 20 * 1024 * 1024) {
-          errors.push(`File ${photo.filename || photo.name} too large (${(fileSizeBytes/1024/1024).toFixed(1)}MB)`);
+        // More accurate file size calculation
+        const fileSizeBytes = Buffer.byteLength(fileContent, 'base64');
+        console.log(`Processing ${photo.filename || photo.name}: ${(fileSizeBytes/1024/1024).toFixed(2)}MB`);
+        
+        // Check Netlify function payload limit (6MB) - this is the real constraint
+        if (fileSizeBytes > 6 * 1024 * 1024) {
+          const sizeMB = (fileSizeBytes/1024/1024).toFixed(1);
+          errors.push(`File ${photo.filename || photo.name} too large (${sizeMB}MB). Netlify functions limited to 6MB.`);
+          console.warn(`Skipping large file: ${photo.filename || photo.name} (${sizeMB}MB)`);
           continue;
         }
 

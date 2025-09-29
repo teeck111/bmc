@@ -408,8 +408,8 @@ class AddTrip {
                 continue;
             }
             
-            if (file.size > 20 * 1024 * 1024) { // 20MB limit
-                alert(`"${file.name}" is too large (${(file.size/1024/1024).toFixed(1)}MB). Maximum size is 20MB.`);
+            if (file.size > 6 * 1024 * 1024) { // 6MB limit (Netlify function limit)
+                alert(`"${file.name}" is too large (${(file.size/1024/1024).toFixed(1)}MB). Maximum size is 6MB (Netlify limit).`);
                 continue;
             }
             
