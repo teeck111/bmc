@@ -9,22 +9,14 @@
 [build.environment]
   NODE_VERSION = "18"
 
-# Function configuration  
+# Function configuration
 [functions]
   directory = "netlify/functions"
   
-# Specific function configurations
-[[functions]]
-  name = "upload-photos"
+# Specific function settings
+[functions.upload-photos]
   timeout = 900  # 15 minutes (max for paid plans)
   memory = 1024  # 1GB memory
-  
-# Upload endpoint with longer timeout
-[[redirects]]
-  from = "/.netlify/functions/upload-photos"
-  to = "/.netlify/functions/upload-photos"
-  status = 200
-  headers = {"X-Robots-Tag" = "noindex"}
   
 # Headers for security
 [[headers]]
