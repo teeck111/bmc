@@ -400,20 +400,28 @@ class AddTrip {
             return;
         }
         
-        // Validate files
+        // Validate files and collect errors
         const validFiles = [];
+        const fileErrors = [];
+        
         for (let file of files) {
             if (!file.type.startsWith('image/')) {
-                alert(`"${file.name}" is not an image file. Only image files are allowed.`);
+                fileErrors.push(`"${file.name}" - Not an image file`);
                 continue;
             }
             
             if (file.size > 6 * 1024 * 1024) { // 6MB limit (Netlify function limit)
-                alert(`"${file.name}" is too large (${(file.size/1024/1024).toFixed(1)}MB). Maximum size is 6MB (Netlify limit).`);
+                const sizeMB = (file.size/1024/1024).toFixed(1);
+                fileErrors.push(`"${file.name}" - Too large (${sizeMB}MB, max 6MB)`);
                 continue;
             }
             
             validFiles.push(file);
+        }
+        
+        // Show specific file errors if any
+        if (fileErrors.length > 0) {
+            this.showFileValidationErrors(fileErrors);
         }
         
         if (validFiles.length === 0) return;
@@ -447,7 +455,7 @@ class AddTrip {
             }
             
             if (uploadedUrls.length < validFiles.length) {
-                this.showUploadWarning(uploadedUrls.length, validFiles.length);
+                this.showUploadWarning(uploadedUrls.length, validFiles.length, fileErrors);
             }
             
         } catch (error) {
@@ -512,13 +520,20 @@ class AddTrip {
         }, 5000);
     }
 
-    showUploadWarning(uploaded, total) {
+    showUploadWarning(uploaded, total, fileErrors = []) {
         const messageDiv = document.createElement('div');
         messageDiv.className = 'alert alert-warning alert-dismissible fade show position-fixed';
-        messageDiv.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px;';
+        messageDiv.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px; max-width: 400px;';
+        
+        let errorDetails = '';
+        if (fileErrors && fileErrors.length > 0) {
+            errorDetails = '<hr><small><strong>Issues found:</strong><br>' + fileErrors.join('<br>') + '</small>';
+        }
+        
         messageDiv.innerHTML = `
             <i class="fas fa-exclamation-triangle"></i> <strong>Partial Upload</strong><br>
             Only ${uploaded} of ${total} photos were uploaded successfully.
+            ${errorDetails}
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         `;
         
@@ -528,7 +543,27 @@ class AddTrip {
             if (messageDiv.parentNode) {
                 messageDiv.parentNode.removeChild(messageDiv);
             }
-        }, 7000);
+        }, 10000); // Longer timeout since there's more info to read
+    }
+
+    showFileValidationErrors(fileErrors) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = 'alert alert-danger alert-dismissible fade show position-fixed';
+        messageDiv.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px; max-width: 400px;';
+        messageDiv.innerHTML = `
+            <i class="fas fa-exclamation-triangle"></i> <strong>File Upload Issues</strong><br>
+            Some files couldn't be uploaded:
+            <hr><small>${fileErrors.join('<br>')}</small>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        `;
+        
+        document.body.appendChild(messageDiv);
+        
+        setTimeout(() => {
+            if (messageDiv.parentNode) {
+                messageDiv.parentNode.removeChild(messageDiv);
+            }
+        }, 8000);
     }
 
     showUploadError(message) {
