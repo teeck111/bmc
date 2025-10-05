@@ -2,7 +2,7 @@
   "trips": [
     {
       "location": "Skyline Traverse",
-      "date": "2025-10-05",
+      "date": "2025-10-01",
       "duration": "6 hours",
       "distance": "18 miles",
       "elevation": "6000 ft",
@@ -22,7 +22,7 @@
       ],
       "id": "1759708670708",
       "dateAdded": "2025-10-05T23:57:50.708Z",
-      "dateModified": "2025-10-05T23:59:06.792Z"
+      "dateModified": "2025-10-05T23:59:26.861Z"
     },
     {
       "location": "Sawtooth",
@@ -155,7 +155,7 @@
       "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2025-10-05T23:59:06.792Z",
+  "lastUpdated": "2025-10-05T23:59:26.861Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
