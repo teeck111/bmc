@@ -1,6 +1,29 @@
 {
   "trips": [
     {
+      "location": "Shelf and Solitude Lake, RMNP",
+      "date": "2025-10-05",
+      "duration": "5 hours",
+      "distance": "10 miles",
+      "elevation": "2,400 ft",
+      "members": [
+        "Rhiannon",
+        "Eli"
+      ],
+      "description": "Shelf and Solitude Lake via Glacier Gorge Trail. Gorgeous views and great weather, and we got into the park for free!",
+      "photos": [
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1759771019712-0-IMG_7009.png",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1759771020676-0-IMG_7021.png",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1759771021551-0-IMG_6997.png",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1759771022355-0-IMG_6998.png",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1759771023511-0-IMG_7040.png",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1759771024423-0-IMG_7031.png"
+      ],
+      "id": "1759771102322",
+      "dateAdded": "2025-10-06T17:18:22.322Z",
+      "dateModified": "2025-10-06T17:18:22.322Z"
+    },
+    {
       "location": "Skyline Traverse",
       "date": "2025-10-01",
       "duration": "6 hours",
@@ -155,7 +178,7 @@
       "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2025-10-05T23:59:26.861Z",
+  "lastUpdated": "2025-10-06T17:18:22.658Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
