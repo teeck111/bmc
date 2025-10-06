@@ -1,6 +1,26 @@
 {
   "trips": [
     {
+      "location": "Skyline Traverse",
+      "date": "2025-09-28",
+      "duration": "4 hours",
+      "distance": "14 miles",
+      "elevation": "4,500 ft",
+      "members": [
+        "Eli"
+      ],
+      "description": "Summited South Boulder Peak, Bear Peak, Green Mountain, and Flagstaff Mountain.",
+      "photos": [
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1759771602664-0-IMG_6940.png",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1759771603563-0-IMG_6937.png",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1759771604527-0-IMG_6922.png",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1759771605389-0-IMG_6915.png"
+      ],
+      "id": "1759771630513",
+      "dateAdded": "2025-10-06T17:27:10.513Z",
+      "dateModified": "2025-10-06T17:27:10.513Z"
+    },
+    {
       "location": "Shelf and Solitude Lake, RMNP",
       "date": "2025-10-05",
       "duration": "5 hours",
@@ -178,7 +198,7 @@
       "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2025-10-06T17:18:22.658Z",
+  "lastUpdated": "2025-10-06T17:27:10.876Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
