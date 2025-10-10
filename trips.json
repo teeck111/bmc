@@ -1,22 +1,6 @@
 {
   "trips": [
     {
-      "location": "Longs Peak",
-      "date": "2025-10-10",
-      "duration": "7 hours",
-      "distance": "14.5 miles",
-      "elevation": "5,100 ft",
-      "members": [
-        "Aidan",
-        "Eli"
-      ],
-      "description": "Responsible complications from the night before.",
-      "photos": [],
-      "id": "1760137944725",
-      "dateAdded": "2025-10-10T23:12:24.725Z",
-      "dateModified": "2025-10-10T23:12:24.725Z"
-    },
-    {
       "location": "Lost Lake",
       "date": "2025-10-08",
       "duration": "1 Day",
@@ -281,7 +265,7 @@
       "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2025-10-10T23:12:25.036Z",
+  "lastUpdated": "2025-10-10T23:14:21.022Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
