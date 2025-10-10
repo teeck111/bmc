@@ -1,6 +1,35 @@
 {
   "trips": [
     {
+      "location": "Lost Lake",
+      "date": "2025-10-08",
+      "duration": "1 Day",
+      "distance": "2 Miles",
+      "elevation": "816 ft",
+      "members": [
+        "Milly",
+        "Bella",
+        "Kate",
+        "Riley",
+        "Holden"
+      ],
+      "description": "We used our day off from classes to camp out at Lost Lake in Roosevelt National Forest! Easy hike in, great dispersed camping, and beautiful weather (sunny, but cold). We saw some amazing fall colors and a little bit of snow. Highly recommend this trip for anyone that's new to camping/backpacking or looking for a chill overnight trip.",
+      "photos": [
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1760119859713-0-DSC_0984.JPG",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1760119866348-0-DSC_1051.JPG",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1760119872356-0-DSC_1060.JPG",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1760119876830-0-DSC_1056.JPG",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1760119993757-0-IMG_9134.jpeg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1760120001975-0-IMG_9013.jpeg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1760120007288-0-IMG_5836.JPG",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1760120019509-0-DSC_1054.JPG",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1760120054956-0-DSC_0995.JPG"
+      ],
+      "id": "1760120115899",
+      "dateAdded": "2025-10-10T18:15:15.899Z",
+      "dateModified": "2025-10-10T18:15:15.899Z"
+    },
+    {
       "location": "Navajo Peak",
       "date": "2025-10-10",
       "duration": "7 hours",
@@ -236,7 +265,7 @@
       "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2025-10-10T15:32:11.588Z",
+  "lastUpdated": "2025-10-10T18:15:16.272Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
