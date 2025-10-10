@@ -2,7 +2,7 @@
   "trips": [
     {
       "location": "Capitol Peak",
-      "date": "2025-10-09",
+      "date": "2025-10-10",
       "duration": "12 hours",
       "distance": "18 miles",
       "elevation": "7,400 ft",
@@ -21,7 +21,7 @@
       ],
       "id": "1760138380788",
       "dateAdded": "2025-10-10T23:19:40.788Z",
-      "dateModified": "2025-10-10T23:19:40.788Z"
+      "dateModified": "2025-10-10T23:21:29.405Z"
     },
     {
       "location": "Lost Lake",
@@ -291,7 +291,7 @@
       "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2025-10-10T23:19:41.152Z",
+  "lastUpdated": "2025-10-10T23:21:29.405Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
