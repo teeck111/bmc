@@ -1,6 +1,29 @@
 {
   "trips": [
     {
+      "location": "Capitol Peak",
+      "date": "2025-10-09",
+      "duration": "12 hours",
+      "distance": "18 miles",
+      "elevation": "7,400 ft",
+      "members": [
+        "Aidan",
+        "Henry",
+        "Davis"
+      ],
+      "description": "Left at 10pm Wednesday. Got back 8pm Thursday. Grosssss",
+      "photos": [
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1760138345079-0-cap.jpg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1760138348937-0-cap1 copy.jpg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1760138353874-0-cap1 copy1.jpg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1760138364913-0-cap1.jpg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1760138369502-0-capp.jpg"
+      ],
+      "id": "1760138380788",
+      "dateAdded": "2025-10-10T23:19:40.788Z",
+      "dateModified": "2025-10-10T23:19:40.788Z"
+    },
+    {
       "location": "Lost Lake",
       "date": "2025-10-08",
       "duration": "1 Day",
@@ -268,7 +291,7 @@
       "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2025-10-10T23:16:44.426Z",
+  "lastUpdated": "2025-10-10T23:19:41.152Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
