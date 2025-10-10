@@ -1,6 +1,26 @@
 {
   "trips": [
     {
+      "location": "Navajo Peak",
+      "date": "2025-10-10",
+      "duration": "7 hours",
+      "distance": "12 miles",
+      "elevation": "3000 ft",
+      "members": [
+        "Tyler and Henry"
+      ],
+      "description": "Went up the snowfield and down Airplane gully, awesome day on such a cool peak",
+      "photos": [
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1760110312553-0-IMG_1379.jpeg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1760110318860-0-IMG_1388.jpeg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1760110320940-0-IMG_1428.jpeg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1760110324161-0-IMG_7396.jpeg"
+      ],
+      "id": "1760110331234",
+      "dateAdded": "2025-10-10T15:32:11.234Z",
+      "dateModified": "2025-10-10T15:32:11.234Z"
+    },
+    {
       "location": "Arapahoe Peaks, CO",
       "date": "2025-10-09",
       "duration": "6 hours",
@@ -216,7 +236,7 @@
       "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2025-10-09T20:35:01.556Z",
+  "lastUpdated": "2025-10-10T15:32:11.588Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
