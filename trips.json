@@ -36,7 +36,8 @@
       "distance": "12 miles",
       "elevation": "3000 ft",
       "members": [
-        "Tyler and Henry"
+        "Tyler",
+        "Henry"
       ],
       "description": "Went up the snowfield and down Airplane gully, awesome day on such a cool peak",
       "photos": [
@@ -47,7 +48,7 @@
       ],
       "id": "1760110331234",
       "dateAdded": "2025-10-10T15:32:11.234Z",
-      "dateModified": "2025-10-10T15:32:11.234Z"
+      "dateModified": "2025-10-10T23:15:08.731Z"
     },
     {
       "location": "Arapahoe Peaks, CO",
@@ -265,7 +266,7 @@
       "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2025-10-10T23:14:21.022Z",
+  "lastUpdated": "2025-10-10T23:15:08.731Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
