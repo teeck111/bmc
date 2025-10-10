@@ -52,7 +52,7 @@
     },
     {
       "location": "Arapahoe Peaks, CO",
-      "date": "2025-10-09",
+      "date": "2025-10-10",
       "duration": "6 hours",
       "distance": "10.2 miles",
       "elevation": "3,800 feet",
@@ -62,11 +62,13 @@
       ],
       "description": "Did the Arapahoe Traverse from South to North and then back. Super cool ridge, the snow added some extra challenge but it was a beautiful day and a fun climb. Saw two moose as well!",
       "photos": [
-        "https://photos.app.goo.gl/otcRJDGzKBv2CMRT8"
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1760138192753-0-IMG_1455.jpeg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1760138195514-0-IMG_1454.jpeg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1760138196879-0-IMG_1453.jpeg"
       ],
       "id": "1760042101190",
       "dateAdded": "2025-10-09T20:35:01.190Z",
-      "dateModified": "2025-10-09T20:35:01.190Z"
+      "dateModified": "2025-10-10T23:16:44.426Z"
     },
     {
       "location": "Skyline Traverse",
@@ -266,7 +268,7 @@
       "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2025-10-10T23:15:08.731Z",
+  "lastUpdated": "2025-10-10T23:16:44.426Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
