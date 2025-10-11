@@ -1,6 +1,23 @@
 {
   "trips": [
     {
+      "location": "Mt. Audubon and Mt. Paiute",
+      "date": "2025-10-11",
+      "duration": "6 hours",
+      "distance": "10 miles",
+      "elevation": "3,600 ft",
+      "members": [
+        "Rivers",
+        "Katie",
+        "Eleanor"
+      ],
+      "description": "Morning sunrise hike! Minimal falling",
+      "photos": [],
+      "id": "1760150818789",
+      "dateAdded": "2025-10-11T02:46:58.789Z",
+      "dateModified": "2025-10-11T02:46:58.789Z"
+    },
+    {
       "location": "Quandary (West Ridge)",
       "date": "2025-09-15",
       "duration": "7 hours",
@@ -319,7 +336,7 @@
       "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2025-10-10T23:30:36.338Z",
+  "lastUpdated": "2025-10-11T02:46:59.134Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
