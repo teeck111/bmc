@@ -54,7 +54,14 @@ class AddTrip {
     populateEditForm(trip) {
         // Populate form fields with existing trip data
         document.getElementById('location').value = trip.location || '';
-        document.getElementById('date').value = trip.date || '';
+        const dateInput = document.getElementById('date');
+            if (trip.date) {
+            // If trip.date is already "YYYY-MM-DD", this returns a local date; if it's an ISO string, convert safely.
+            const parsed = this.parseLocalDate(trip.date);
+            dateInput.value = parsed ? this.formatLocalDate(parsed) : trip.date;
+            } else {
+            dateInput.value = '';
+            }
         document.getElementById('duration').value = trip.duration || '';
         document.getElementById('distance').value = trip.distance || '';
         document.getElementById('elevation').value = trip.elevation || '';
@@ -193,6 +200,33 @@ class AddTrip {
             }
         });
     }
+    // Parse a "YYYY-MM-DD" string into a local Date object (no timezone shift)
+parseLocalDate(dateStr) {
+  if (!dateStr) return null;
+  // Accept ISO-ish strings too; if it already looks like YYYY-MM-DD, use direct parse
+  const m = dateStr.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (m) {
+    const y = Number(m[1]);
+    const mo = Number(m[2]) - 1; // monthIndex
+    const d = Number(m[3]);
+    return new Date(y, mo, d);
+  }
+  // Fallback: try to parse a full ISO string but convert to local YYYY-MM-DD then local Date
+  const maybe = new Date(dateStr);
+  if (!isNaN(maybe)) {
+    return new Date(maybe.getFullYear(), maybe.getMonth(), maybe.getDate());
+  }
+  return null;
+}
+
+// Format a Date object as "YYYY-MM-DD" for input[type=date]
+formatLocalDate(date) {
+  if (!date) return '';
+  const y = date.getFullYear();
+  const m = String(date.getMonth() + 1).padStart(2, '0');
+  const d = String(date.getDate()).padStart(2, '0');
+  return `${y}-${m}-${d}`;
+}
 
     setDefaultDate() {
         const dateInput = document.getElementById('date');
