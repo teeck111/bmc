@@ -1,6 +1,26 @@
 {
   "trips": [
     {
+      "location": "Longs Peak",
+      "date": "2025-10-26",
+      "duration": "12 hours",
+      "distance": "15 miles",
+      "elevation": "7,000 feet",
+      "members": [
+        "lucian Rodriguez",
+        "Andew Baack"
+      ],
+      "description": "Cable route on Longs, solid mixed climbing, great weather all day",
+      "photos": [
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1761607961513-0-IMG_5100.jpg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1761607975339-0-IMG_6216.jpg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1761607977559-0-IMG_5105.jpg"
+      ],
+      "id": "1761607987219",
+      "dateAdded": "2025-10-27T23:33:07.219Z",
+      "dateModified": "2025-10-27T23:33:07.220Z"
+    },
+    {
       "location": "Mt. Audubon and Mt. Paiute",
       "date": "2025-10-11",
       "duration": "6 hours",
@@ -338,7 +358,7 @@
       "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2025-10-22T21:29:25.492Z",
+  "lastUpdated": "2025-10-27T23:33:07.588Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
