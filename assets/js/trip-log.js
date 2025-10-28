@@ -63,6 +63,13 @@ class TripLog {
             console.error('Error loading trips from Netlify database:', error);
             console.warn('Falling back to localStorage');
             this.trips = this.loadFromLocalStorage();
+            
+            // Sort trips by date (most recent first) - fallback path
+            this.trips.sort((a, b) => {
+                const dateA = new Date(a.date);
+                const dateB = new Date(b.date);
+                return dateB - dateA; // Descending order
+            });
         }
     }
 
@@ -374,6 +381,13 @@ class TripLog {
                 new Date(trip.date).getFullYear().toString() === yearFilter
             );
         }
+
+        // Sort filtered trips by date (most recent first)
+        filteredTrips.sort((a, b) => {
+            const dateA = new Date(a.date);
+            const dateB = new Date(b.date);
+            return dateB - dateA; // Descending order
+        });
 
         this.renderTrips(filteredTrips);
     }
