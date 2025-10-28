@@ -52,6 +52,13 @@ class TripLog {
                 this.trips = this.loadFromLocalStorage();
                 console.log('Loaded', this.trips.length, 'trips from localStorage');
             }
+            
+            // Sort trips by date (most recent first)
+            this.trips.sort((a, b) => {
+                const dateA = new Date(a.date);
+                const dateB = new Date(b.date);
+                return dateB - dateA; // Descending order
+            });
         } catch (error) {
             console.error('Error loading trips from Netlify database:', error);
             console.warn('Falling back to localStorage');
@@ -372,6 +379,20 @@ class TripLog {
     }
 
     formatDate(dateString) {
+        // Parse YYYY-MM-DD as local date to avoid timezone offset issues
+        const match = dateString.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+        if (match) {
+            const year = parseInt(match[1]);
+            const month = parseInt(match[2]) - 1; // monthIndex (0-11)
+            const day = parseInt(match[3]);
+            const date = new Date(year, month, day);
+            return date.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+        }
+        // Fallback for other date formats
         const date = new Date(dateString);
         return date.toLocaleDateString('en-US', {
             year: 'numeric',
