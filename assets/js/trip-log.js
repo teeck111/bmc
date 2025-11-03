@@ -55,10 +55,25 @@ class TripLog {
             
             // Sort trips by date (most recent first)
             this.trips.sort((a, b) => {
-                const dateA = new Date(a.date);
-                const dateB = new Date(b.date);
-                return dateB - dateA; // Descending order
+                // Parse dates as YYYY-MM-DD to avoid timezone issues
+                const parseDate = (dateStr) => {
+                    if (!dateStr) return new Date(0);
+                    const match = dateStr.match(/^(\d{4})-(\d{2})-(\d{2})/);
+                    if (match) {
+                        return new Date(parseInt(match[1]), parseInt(match[2]) - 1, parseInt(match[3]));
+                    }
+                    return new Date(dateStr);
+                };
+                
+                const dateA = parseDate(a.date);
+                const dateB = parseDate(b.date);
+                const result = dateB - dateA; // Descending order (newest first)
+                
+                console.log(`Comparing ${a.location} (${a.date}) vs ${b.location} (${b.date}): ${result}`);
+                return result;
             });
+            
+            console.log('Trips after sorting:', this.trips.map(t => `${t.location} (${t.date})`));
         } catch (error) {
             console.error('Error loading trips from Netlify database:', error);
             console.warn('Falling back to localStorage');
@@ -66,8 +81,16 @@ class TripLog {
             
             // Sort trips by date (most recent first) - fallback path
             this.trips.sort((a, b) => {
-                const dateA = new Date(a.date);
-                const dateB = new Date(b.date);
+                const parseDate = (dateStr) => {
+                    if (!dateStr) return new Date(0);
+                    const match = dateStr.match(/^(\d{4})-(\d{2})-(\d{2})/);
+                    if (match) {
+                        return new Date(parseInt(match[1]), parseInt(match[2]) - 1, parseInt(match[3]));
+                    }
+                    return new Date(dateStr);
+                };
+                const dateA = parseDate(a.date);
+                const dateB = parseDate(b.date);
                 return dateB - dateA; // Descending order
             });
         }
@@ -384,8 +407,16 @@ class TripLog {
 
         // Sort filtered trips by date (most recent first)
         filteredTrips.sort((a, b) => {
-            const dateA = new Date(a.date);
-            const dateB = new Date(b.date);
+            const parseDate = (dateStr) => {
+                if (!dateStr) return new Date(0);
+                const match = dateStr.match(/^(\d{4})-(\d{2})-(\d{2})/);
+                if (match) {
+                    return new Date(parseInt(match[1]), parseInt(match[2]) - 1, parseInt(match[3]));
+                }
+                return new Date(dateStr);
+            };
+            const dateA = parseDate(a.date);
+            const dateB = parseDate(b.date);
             return dateB - dateA; // Descending order
         });
 
