@@ -1,6 +1,39 @@
 {
   "trips": [
     {
+      "location": "Hellen to Father Dyer to Crystal",
+      "date": "2025-11-08",
+      "duration": "7 hours",
+      "distance": "9 miles",
+      "elevation": "3800 ft",
+      "members": [
+        "Tyler",
+        "Aidan",
+        "Katie",
+        "Oliver",
+        "Luke",
+        "Tiernan",
+        "Natalie",
+        "Abbey",
+        "Emerson",
+        "Renton",
+        "Eli"
+      ],
+      "description": "Our big fall club trip! Perfect day out in the mountains on a huge class 3+ ridge traverse, minimal snow, and incredible vibes",
+      "photos": [
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1762746161737-0-20251108_124648_Original.jpeg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1762746164476-0-20251108_102530_Original.jpeg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1762746166514-0-_DSC0864.jpeg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1762746169119-0-_DSC1318.jpeg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1762746170404-0-_DSC1244.jpeg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1762746172231-0-IMG_0158.jpeg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1762746174841-0-IMG_1626.jpeg"
+      ],
+      "id": "1762746185830",
+      "dateAdded": "2025-11-10T03:43:05.830Z",
+      "dateModified": "2025-11-10T03:43:05.830Z"
+    },
+    {
       "location": "Longs Peak",
       "date": "2025-10-26",
       "duration": "12 hours",
@@ -358,7 +391,7 @@
       "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2025-10-27T23:33:07.588Z",
+  "lastUpdated": "2025-11-10T03:43:06.201Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
