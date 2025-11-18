@@ -1,6 +1,29 @@
 {
   "trips": [
     {
+      "location": "Mt. Neva",
+      "date": "2025-11-16",
+      "duration": "7 hours",
+      "distance": "9 miles",
+      "elevation": "3,400 ft",
+      "members": [
+        "Katie",
+        "Philipp",
+        "Alex",
+        "Harris",
+        "Mark"
+      ],
+      "description": "Fun little class 4 ridge with perfect conditions!. Some people's first trips with BMC!",
+      "photos": [
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1763425515989-0-1000020904.jpg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1763425517585-0-1000020902.jpg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1763425520015-0-1000020900.jpg"
+      ],
+      "id": "1763425549581",
+      "dateAdded": "2025-11-18T00:25:49.581Z",
+      "dateModified": "2025-11-18T00:25:49.581Z"
+    },
+    {
       "location": "Hellen to Father Dyer to Crystal",
       "date": "2025-11-08",
       "duration": "7 hours",
@@ -391,7 +414,7 @@
       "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2025-11-10T03:43:06.201Z",
+  "lastUpdated": "2025-11-18T00:25:49.931Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
