@@ -1,6 +1,35 @@
 {
   "trips": [
     {
+      "location": "Asgard Ridge",
+      "date": "2025-11-26",
+      "duration": "13.5 hours",
+      "distance": "10.41 miles",
+      "elevation": "4,600 ft",
+      "members": [
+        "Aidan",
+        "Eli",
+        "Kate",
+        "Jeremiah",
+        "Henry",
+        "Davis",
+        "Oliver",
+        "John"
+      ],
+      "description": "Mt Valhalla via Point Odin and Palamino Point. 400 ft of ledge leading to base of point odin was completely broken off and made the route borderline stupid without ropes. bailed because of this and had to bushwhack back to first trailhead. Choosiest, most rotten rock we're ever scrambled on -- helmets mandatory. This thing is a beast and will we will be back for revenge.",
+      "photos": [
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1764188524324-0-asgard1.jpg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1764188547884-0-asgadr4.jpg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1764188549963-0-asgard5.jpg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1764188551841-0-asgard6.jpg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1764188553880-0-asgard34.jpg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1764188555858-0-asgartd2.jpg"
+      ],
+      "id": "1764188562225",
+      "dateAdded": "2025-11-26T20:22:42.225Z",
+      "dateModified": "2025-11-26T20:22:42.225Z"
+    },
+    {
       "location": "Mt. Audubon and Mt. Paiute",
       "date": "2025-11-21",
       "duration": "10 hours",
@@ -608,7 +637,7 @@
       "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2025-11-26T20:03:24.537Z",
+  "lastUpdated": "2025-11-26T20:22:42.613Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
