@@ -1,6 +1,29 @@
 {
   "trips": [
     {
+      "location": "Arapaho Traverse",
+      "date": "2025-10-21",
+      "duration": "6 hours",
+      "distance": "8.3 miles",
+      "elevation": "3,500 ft",
+      "members": [
+        "Aidan",
+        "Kennedy",
+        "Finn",
+        "Katie"
+      ],
+      "description": "done on a tuesday night for funsies! super easy terrain -- ridge direct to make it spicy!",
+      "photos": [
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1764184731607-0-arap1.jpg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1764184734080-0-arap2.jpg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1764184735902-0-arap3.jpg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1764184737783-0-arap4.jpg"
+      ],
+      "id": "1764184758449",
+      "dateAdded": "2025-11-26T19:19:18.449Z",
+      "dateModified": "2025-11-26T19:19:18.449Z"
+    },
+    {
       "location": "Kasparov Traverse",
       "date": "2025-10-05",
       "duration": "13 hours",
@@ -498,7 +521,7 @@
       "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2025-11-26T19:14:10.835Z",
+  "lastUpdated": "2025-11-26T19:19:18.780Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
