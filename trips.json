@@ -1,6 +1,26 @@
 {
   "trips": [
     {
+      "location": "Mt. Audubon and Mt. Paiute",
+      "date": "2025-11-21",
+      "duration": "10 hours",
+      "distance": "15 miles",
+      "elevation": "3,900 ft",
+      "members": [
+        "John",
+        "Finn",
+        "Katie"
+      ],
+      "description": "Originally planned to bag 4 peaks but with the snow we had to bail after Paiute.  Still a great day!",
+      "photos": [
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1764187227418-0-1000021025.jpg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1764187230578-0-1000021016.jpg"
+      ],
+      "id": "1764187404141",
+      "dateAdded": "2025-11-26T20:03:24.141Z",
+      "dateModified": "2025-11-26T20:03:24.141Z"
+    },
+    {
       "location": "Skyline Traverse",
       "date": "2025-11-14",
       "duration": "5 hours",
@@ -588,7 +608,7 @@
       "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2025-11-26T19:54:51.902Z",
+  "lastUpdated": "2025-11-26T20:03:24.537Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
