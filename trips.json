@@ -1,6 +1,30 @@
 {
   "trips": [
     {
+      "location": "Kasparov Traverse",
+      "date": "2025-10-05",
+      "duration": "13 hours",
+      "distance": "11 miles",
+      "elevation": "4,100 ft",
+      "members": [
+        "Aidan",
+        "John",
+        "Eli",
+        "Henry"
+      ],
+      "description": "Shoshoni to Apache in the IPW! Skipped everything >5.7, did all the other chessmen! Big day in the alpine.",
+      "photos": [
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1764184341827-0-kasp.jpg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1764184343636-0-kasp2.jpg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1764184345553-0-kasp3.jpg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1764184347989-0-kasp4.jpg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1764184349911-0-kasp5.jpg"
+      ],
+      "id": "1764184450696",
+      "dateAdded": "2025-11-26T19:14:10.696Z",
+      "dateModified": "2025-11-26T19:14:10.696Z"
+    },
+    {
       "location": "Crestone Traverse",
       "date": "2025-09-07",
       "duration": "22 hours",
@@ -474,7 +498,7 @@
       "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2025-11-26T19:13:46.967Z",
+  "lastUpdated": "2025-11-26T19:14:10.835Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
