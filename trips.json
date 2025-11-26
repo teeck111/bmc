@@ -1,6 +1,28 @@
 {
   "trips": [
     {
+      "location": "Crestone Traverse",
+      "date": "2025-11-26",
+      "duration": "22 hours",
+      "distance": "14",
+      "elevation": "7,400",
+      "members": [
+        "Aidan",
+        "Alex",
+        "Campbell",
+        "Chance"
+      ],
+      "description": "blood moon over the sand dunes at the start of broken hand pass. such a slog going down crestone needle. done before east crestone was named as the peak! backpacked in previous day, got going at 3 am day of!",
+      "photos": [
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1764184072209-0-cres1.jpg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1764184075367-0-cres3.jpg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1764184077934-0-cres4.jpg"
+      ],
+      "id": "1764184222104",
+      "dateAdded": "2025-11-26T19:10:22.104Z",
+      "dateModified": "2025-11-26T19:10:22.104Z"
+    },
+    {
       "location": "Long Peak",
       "date": "2025-08-31",
       "duration": "7 hours",
@@ -452,7 +474,7 @@
       "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2025-11-26T19:04:30.193Z",
+  "lastUpdated": "2025-11-26T19:10:22.511Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
