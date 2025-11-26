@@ -1,6 +1,28 @@
 {
   "trips": [
     {
+      "location": "Skyline Traverse",
+      "date": "2025-11-14",
+      "duration": "5 hours",
+      "distance": "16 miles",
+      "elevation": "5000 ft",
+      "members": [
+        "Rivers",
+        "Katie",
+        "Finn",
+        "Alex"
+      ],
+      "description": "Started at 4 am and Rivers made it to her 9 am!",
+      "photos": [
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1764186809348-0-1000020729.jpg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1764186814084-0-1000020735.jpg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1764186816992-0-1000020743.jpg"
+      ],
+      "id": "1764186891562",
+      "dateAdded": "2025-11-26T19:54:51.562Z",
+      "dateModified": "2025-11-26T19:54:51.562Z"
+    },
+    {
       "location": "Bluebird Lake & Copeland Mountain, Rocky Mountain National Park",
       "date": "2025-10-25",
       "duration": "3 days",
@@ -566,7 +588,7 @@
       "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2025-11-26T19:27:54.930Z",
+  "lastUpdated": "2025-11-26T19:54:51.902Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
