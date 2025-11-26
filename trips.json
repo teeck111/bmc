@@ -1,6 +1,24 @@
 {
   "trips": [
     {
+      "location": "Long Peak",
+      "date": "2025-08-31",
+      "duration": "7 hours",
+      "distance": "14.5 miles",
+      "elevation": "5,100 ft",
+      "members": [
+        "Aidan",
+        "Eli"
+      ],
+      "description": "keyhole! very nice outing",
+      "photos": [
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1764183858589-0-IMG_1097.jpeg"
+      ],
+      "id": "1764183869839",
+      "dateAdded": "2025-11-26T19:04:29.839Z",
+      "dateModified": "2025-11-26T19:04:29.839Z"
+    },
+    {
       "location": "Devil’s Thumb, Indian Peaks Wilderness",
       "date": "2025-09-13",
       "duration": "",
@@ -434,7 +452,7 @@
       "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2025-11-26T18:57:36.011Z",
+  "lastUpdated": "2025-11-26T19:04:30.193Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
