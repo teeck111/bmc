@@ -2,10 +2,10 @@
   "trips": [
     {
       "location": "Crestone Traverse",
-      "date": "2025-11-26",
+      "date": "2025-09-07",
       "duration": "22 hours",
-      "distance": "14",
-      "elevation": "7,400",
+      "distance": "14 miles",
+      "elevation": "7,400 ft",
       "members": [
         "Aidan",
         "Alex",
@@ -20,7 +20,7 @@
       ],
       "id": "1764184222104",
       "dateAdded": "2025-11-26T19:10:22.104Z",
-      "dateModified": "2025-11-26T19:10:22.104Z"
+      "dateModified": "2025-11-26T19:13:46.967Z"
     },
     {
       "location": "Long Peak",
@@ -474,7 +474,7 @@
       "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2025-11-26T19:10:22.511Z",
+  "lastUpdated": "2025-11-26T19:13:46.967Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
