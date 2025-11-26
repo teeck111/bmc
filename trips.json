@@ -1,6 +1,28 @@
 {
   "trips": [
     {
+      "location": "Mohling Traverse",
+      "date": "2025-10-26",
+      "duration": "14 hours",
+      "distance": "21 miles",
+      "elevation": "5,500 ft",
+      "members": [
+        "Aidan",
+        "Finn"
+      ],
+      "description": "Lone Eagle -> Limbo. did not summit last peak due to time, lots of snow on route at the time! ~5.7 mixed climbing pitch on the way up to limbo, ridge direct when going to lone eagle! scaryyyy knife edge. 8 mile approach!",
+      "photos": [
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1764185094180-0-mohlgin2.jpg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1764185096018-0-mohling1.jpg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1764185097745-0-mohling5.jpg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1764185099657-0-mohoing3.jpg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1764185101802-0-mohoing4.jpg"
+      ],
+      "id": "1764185116509",
+      "dateAdded": "2025-11-26T19:25:16.510Z",
+      "dateModified": "2025-11-26T19:25:16.510Z"
+    },
+    {
       "location": "Arapaho Traverse",
       "date": "2025-10-21",
       "duration": "6 hours",
@@ -521,7 +543,7 @@
       "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2025-11-26T19:19:18.780Z",
+  "lastUpdated": "2025-11-26T19:25:16.869Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
