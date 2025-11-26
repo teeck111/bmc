@@ -1,6 +1,26 @@
 {
   "trips": [
     {
+      "location": "Devil’s Thumb, Indian Peaks Wilderness",
+      "date": "2025-09-13",
+      "duration": "",
+      "distance": "About 15 miles round trip",
+      "elevation": "Approximately 2,500 ft",
+      "members": [
+        "Natalie",
+        "Abbey"
+      ],
+      "description": "Did a one night camping trip at Devil’s Thumb in the Indian Peaks Wilderness. We took the bus from Boulder to the Nederland high school and then there’s a shuttle in the summer and through mid September that’ll take hikers back and forth from the Hessie trailhead. The hike was a gradual uphill the whole way with a good amount of elevation gain. We camped at about 11,000 ft and the weather was pretty crazy. It snowed and was VERY windy all night long. We also did have cell service there. Devils Thumb Lake was our water source. It was very beautiful and would highly suggest, just be prepared for the weather.",
+      "photos": [
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1764183381251-0-IMG_4267.jpeg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1764183386531-0-IMG_2761.jpeg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1764183394848-0-IMG_7536.jpeg"
+      ],
+      "id": "1764183455702",
+      "dateAdded": "2025-11-26T18:57:35.702Z",
+      "dateModified": "2025-11-26T18:57:35.702Z"
+    },
+    {
       "location": "Mt. Neva",
       "date": "2025-11-16",
       "duration": "7 hours",
@@ -414,7 +434,7 @@
       "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2025-11-18T00:25:49.931Z",
+  "lastUpdated": "2025-11-26T18:57:36.011Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
