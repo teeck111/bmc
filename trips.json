@@ -1,6 +1,29 @@
 {
   "trips": [
     {
+      "location": "Bluebird Lake & Copeland Mountain, Rocky Mountain National Park",
+      "date": "2025-10-25",
+      "duration": "3 days",
+      "distance": "26 miles",
+      "elevation": "3,000 feet",
+      "members": [
+        "Natalie",
+        "Abbey"
+      ],
+      "description": "Arrived in the park Friday night and camped at Pine Ridge which was about a 1.5 miles from the trailhead. The next day we got up and hiked to Upper Ouzel Creek campsite where we dropped our stuff and then continued to Bluebird lake. The lake was beautiful but very windy. We then scrambled up Copeland mountain which is to the left of the lake. It was a pretty easy scramble. Next day we hiked all the way back. Great trip.",
+      "photos": [
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1764185210378-0-PA251352.jpeg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1764185237279-0-PA251338.jpeg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1764185243340-0-PA251284.jpeg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1764185248238-0-PA251346.jpeg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1764185250578-0-PA251305.jpeg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1764185252838-0-PA251363.jpeg"
+      ],
+      "id": "1764185274769",
+      "dateAdded": "2025-11-26T19:27:54.769Z",
+      "dateModified": "2025-11-26T19:27:54.769Z"
+    },
+    {
       "location": "Mohling Traverse",
       "date": "2025-10-26",
       "duration": "14 hours",
@@ -543,7 +566,7 @@
       "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2025-11-26T19:25:16.869Z",
+  "lastUpdated": "2025-11-26T19:27:54.930Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
