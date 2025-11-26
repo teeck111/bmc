@@ -2,7 +2,7 @@
   "trips": [
     {
       "location": "Asgard Ridge",
-      "date": "2025-11-26",
+      "date": "2025-11-16",
       "duration": "13.5 hours",
       "distance": "10.41 miles",
       "elevation": "4,600 ft",
@@ -27,7 +27,7 @@
       ],
       "id": "1764188562225",
       "dateAdded": "2025-11-26T20:22:42.225Z",
-      "dateModified": "2025-11-26T20:22:42.225Z"
+      "dateModified": "2025-11-26T20:26:50.140Z"
     },
     {
       "location": "Mt. Audubon and Mt. Paiute",
@@ -637,7 +637,7 @@
       "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2025-11-26T20:22:42.613Z",
+  "lastUpdated": "2025-11-26T20:26:50.140Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
