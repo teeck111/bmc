@@ -95,8 +95,8 @@ Trip objects stored in localStorage follow this schema:
 ## Important Configuration
 
 ### Passwords
-- Trip submission: `BigMountain2024` (in `add-trip.js` line 4)
-- Admin access: `AdminBMC2024` (in `trip-log.js` line 4)
+- Trip submission: `` (in `add-trip.js` line 4)
+- Admin access: `` (in `trip-log.js` line 4)
 - Admin unlock sequence: Type "admin" on trip-log page
 
 ### Sample Data
