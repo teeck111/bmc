@@ -1,6 +1,27 @@
 {
   "trips": [
     {
+      "location": "Mt Meeker",
+      "date": "2025-12-22",
+      "duration": "8 hours",
+      "distance": "11 miles",
+      "elevation": "5500 ft",
+      "members": [
+        "Aidan",
+        "Finn",
+        "Mia"
+      ],
+      "description": "Finn's last trip with the club (going back to Australia)",
+      "photos": [
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1766442915510-0-IMG_2431.jpg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1766442917070-0-IMG_2440.jpg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1766442918428-0-IMG_2441.jpg"
+      ],
+      "id": "1766442969808",
+      "dateAdded": "2025-12-22T22:36:09.808Z",
+      "dateModified": "2025-12-22T22:36:09.808Z"
+    },
+    {
       "location": "Asgard Ridge",
       "date": "2025-11-16",
       "duration": "13.5 hours",
@@ -637,7 +658,7 @@
       "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2025-11-29T00:43:20.008Z",
+  "lastUpdated": "2025-12-22T22:36:10.127Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
