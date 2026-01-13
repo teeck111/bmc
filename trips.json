@@ -1,6 +1,27 @@
 {
   "trips": [
     {
+      "location": "Longs Peak - Kiener route",
+      "date": "2025-12-15",
+      "duration": "24.5 hours",
+      "distance": "12 miles",
+      "elevation": "4,600 ft",
+      "members": [
+        "Katie",
+        "Ben"
+      ],
+      "description": "Started at 3 am on Monday and finished at 3:30 am Tuesday. Conditons were a bit more \"in\" than we expected so we had to pitch out a lot more of the route than we thought we would. Because of this the way up took a lot longer than anticipated. We had to bail about 500 vertical feet from the summit and go back down the up route (as opposed to going down the much faster cables route). Very mentally and physically exhausting 24 hours.",
+      "photos": [
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1768325654385-0-1000021843.jpg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1768325757783-0-1000021938.heic",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1768325782442-0-1000021936.heic",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1768325783591-0-1000021946.heic"
+      ],
+      "id": "1768325838654",
+      "dateAdded": "2026-01-13T17:37:18.654Z",
+      "dateModified": "2026-01-13T17:37:18.654Z"
+    },
+    {
       "location": "Mt Meeker",
       "date": "2025-12-22",
       "duration": "8 hours",
@@ -658,7 +679,7 @@
       "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2025-12-22T22:36:10.127Z",
+  "lastUpdated": "2026-01-13T17:37:18.966Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
