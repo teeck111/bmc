@@ -1,6 +1,29 @@
 {
   "trips": [
     {
+      "location": "Betty Bear -> Skinner",
+      "date": "2026-02-06",
+      "duration": "3 days",
+      "distance": "20 miles",
+      "elevation": "3200 ft",
+      "members": [
+        "Tyler",
+        "Henry",
+        "Campbell",
+        "Lily",
+        "Lucy"
+      ],
+      "description": "Hut to hut trip! First night was at Betty Bear, second night was at Skinner. There wasn't enough snow to get good turns but just enough to be able to skin 90% of it.",
+      "photos": [
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1770656123427-0-962A6904.jpeg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1770656124719-0-962A6456.jpeg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1770656125883-0-962A6692.jpeg"
+      ],
+      "id": "1770656131532",
+      "dateAdded": "2026-02-09T16:55:31.532Z",
+      "dateModified": "2026-02-09T16:55:31.533Z"
+    },
+    {
       "location": "Longs Peak - Kiener route",
       "date": "2025-12-15",
       "duration": "24.5 hours",
@@ -679,7 +702,7 @@
       "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2026-01-13T17:37:18.966Z",
+  "lastUpdated": "2026-02-09T16:55:31.868Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
