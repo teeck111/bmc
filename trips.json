@@ -1,6 +1,26 @@
 {
   "trips": [
     {
+      "location": "Rocky Mtn National Park",
+      "date": "2026-02-07",
+      "duration": "3.5 hours",
+      "distance": "4 miles",
+      "elevation": "3,000 ft",
+      "members": [
+        "Lucian",
+        "Sam"
+      ],
+      "description": "Started at around 6:30am. Great alpen glow and sunrise from the lakes. Snow seemed strong. Climbed about 3/4 of the way and until the snow became too soft to keep going. Fun downhill",
+      "photos": [
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1770764544944-0-IMG_6910.jpeg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1770764547019-0-IMG_6898.jpeg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1770764548205-0-IMG_7656.jpeg"
+      ],
+      "id": "1770764554100",
+      "dateAdded": "2026-02-10T23:02:34.100Z",
+      "dateModified": "2026-02-10T23:02:34.100Z"
+    },
+    {
       "location": "Betty Bear -> Skinner",
       "date": "2026-02-06",
       "duration": "3 days",
@@ -702,7 +722,7 @@
       "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2026-02-09T16:55:31.868Z",
+  "lastUpdated": "2026-02-10T23:02:34.382Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
