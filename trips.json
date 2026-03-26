@@ -1,6 +1,27 @@
 {
   "trips": [
     {
+      "location": "Basalt -> Avon",
+      "date": "2026-03-17",
+      "duration": "4 days",
+      "distance": "30 miles",
+      "elevation": "~7000 ft",
+      "members": [
+        "Tyler",
+        "Ollie",
+        "Henry"
+      ],
+      "description": "Hut to hut trip from Harry Gates to Peter Estin to Polar Star! Awesome trip but a bit of a slog due to the immense lack of snow.",
+      "photos": [
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1774494005119-0-IMG_2411.jpeg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1774494007444-0-IMG_2424.jpeg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1774494010923-0-IMG_2382.jpeg"
+      ],
+      "id": "1774494027511",
+      "dateAdded": "2026-03-26T03:00:27.511Z",
+      "dateModified": "2026-03-26T03:00:27.511Z"
+    },
+    {
       "location": "Moab",
       "date": "2026-03-14",
       "duration": "3 hours",
@@ -744,7 +765,7 @@
       "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2026-03-26T02:57:00.686Z",
+  "lastUpdated": "2026-03-26T03:00:27.634Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
