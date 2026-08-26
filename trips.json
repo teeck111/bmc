@@ -1,6 +1,25 @@
 {
   "trips": [
     {
+      "location": "Maroon Peak",
+      "date": "2026-06-07",
+      "duration": "2 Days",
+      "distance": "11 miles",
+      "elevation": "5000 ft",
+      "members": [
+        "Granit",
+        "Kyle"
+      ],
+      "description": "Ascent up the Bellcord and down the Y-Couloir on Maroon Peak.",
+      "photos": [
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1787755897702-0-IMG_4868.jpeg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1787755899918-0-2LM09987-3.JPG"
+      ],
+      "id": "1787755934910",
+      "dateAdded": "2026-08-26T14:52:14.910Z",
+      "dateModified": "2026-08-26T14:52:14.914Z"
+    },
+    {
       "location": "Rainier",
       "date": "2026-08-26",
       "duration": "2 days",
@@ -804,7 +823,7 @@
       "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2026-08-26T14:47:09.776Z",
+  "lastUpdated": "2026-08-26T14:52:15.034Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
