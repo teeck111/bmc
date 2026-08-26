@@ -1,6 +1,23 @@
 {
   "trips": [
     {
+      "location": "Mount Syncline",
+      "date": "2026-06-27",
+      "duration": "2 days",
+      "distance": "",
+      "elevation": "",
+      "members": [
+        "Abbey"
+      ],
+      "description": "6km bushwhack, camped in snow pit on summit",
+      "photos": [
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1787765325235-0-01CA8829-09BD-49DC-B3F6-4667B0396307.jpeg"
+      ],
+      "id": "1787765365712",
+      "dateAdded": "2026-08-26T17:29:25.712Z",
+      "dateModified": "2026-08-26T17:29:25.712Z"
+    },
+    {
       "location": "Mount Yamnuska",
       "date": "2026-05-30",
       "duration": "",
@@ -926,7 +943,7 @@
       "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2026-08-26T17:22:34.266Z",
+  "lastUpdated": "2026-08-26T17:29:26.126Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
