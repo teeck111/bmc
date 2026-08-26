@@ -1,6 +1,29 @@
 {
   "trips": [
     {
+      "location": "Castle and Conundrum",
+      "date": "2026-04-24",
+      "duration": "10 hours",
+      "distance": "9 miles",
+      "elevation": "5,300 ft",
+      "members": [
+        "Alex",
+        "Natalie",
+        "Abbey"
+      ],
+      "description": "Skiied and sumitted Castle Peak and Conundrum Couloir",
+      "photos": [
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1787758798419-0-1A6A9627-002A-416D-B8C6-D5048CD0681B.JPG",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1787758954739-0-3BB6B981-CA87-4CAE-A109-950A2850B1BF.jpeg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1787759382751-0-IMG_1129.jpeg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1787759445332-0-292DE9BF-8E5A-4A18-8822-A036C3AF5171.jpeg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1787759446658-0-B5226614-7F49-46A6-B9D8-EBF10F82BC0A.jpeg"
+      ],
+      "id": "1787759550686",
+      "dateAdded": "2026-08-26T15:52:30.686Z",
+      "dateModified": "2026-08-26T15:52:30.686Z"
+    },
+    {
       "location": "North Face of Lone Eagle",
       "date": "2026-06-12",
       "duration": "2 Days",
@@ -841,7 +864,7 @@
       "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2026-08-26T14:58:17.725Z",
+  "lastUpdated": "2026-08-26T15:52:31.069Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
