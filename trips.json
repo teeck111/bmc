@@ -1,6 +1,23 @@
 {
   "trips": [
     {
+      "location": "Pickle Jar Lakes",
+      "date": "2026-07-26",
+      "duration": "2days",
+      "distance": "",
+      "elevation": "",
+      "members": [
+        "Abbey"
+      ],
+      "description": "Camped by Second lake",
+      "photos": [
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1787765548247-0-IMG_4563.jpeg"
+      ],
+      "id": "1787765556425",
+      "dateAdded": "2026-08-26T17:32:36.425Z",
+      "dateModified": "2026-08-26T17:32:36.425Z"
+    },
+    {
       "location": "Mount Syncline",
       "date": "2026-06-27",
       "duration": "2 days",
@@ -943,7 +960,7 @@
       "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2026-08-26T17:29:26.126Z",
+  "lastUpdated": "2026-08-26T17:32:36.635Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
