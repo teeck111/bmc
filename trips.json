@@ -1,6 +1,22 @@
 {
   "trips": [
     {
+      "location": "Blitzen Ridge",
+      "date": "2026-08-17",
+      "duration": "2 Days",
+      "distance": "9 miles",
+      "elevation": "5000 ft",
+      "members": [
+        "Granit",
+        "Dennis"
+      ],
+      "description": "5.4 Blitzen Ridge in RMNP",
+      "photos": [],
+      "id": "1787777894369",
+      "dateAdded": "2026-08-26T20:58:14.369Z",
+      "dateModified": "2026-08-26T20:58:14.369Z"
+    },
+    {
       "location": "East Ridge of The Wolfs Head",
       "date": "2026-08-06",
       "duration": "3 Days",
@@ -1035,7 +1051,7 @@
       "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2026-08-26T20:56:57.450Z",
+  "lastUpdated": "2026-08-26T20:58:14.541Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
