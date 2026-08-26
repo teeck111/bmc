@@ -1,6 +1,30 @@
 {
   "trips": [
     {
+      "location": "Mount Baker",
+      "date": "2026-05-18",
+      "duration": "3 days",
+      "distance": "15 miles",
+      "elevation": "7,400 ft",
+      "members": [
+        "Natalie",
+        "Alex"
+      ],
+      "description": "Skied and summited Mount Baker via the Easton Glacier",
+      "photos": [
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1787763191805-0-IMG_4698.jpeg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1787763200489-0-IMG_1838.jpeg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1787763209964-0-IMG_4715.jpeg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1787763222365-0-IMG_1929.jpeg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1787763242262-0-IMG_1927.jpeg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1787763267209-0-IMG_1946.jpeg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1787763277683-0-IMG_1931.jpeg"
+      ],
+      "id": "1787763362125",
+      "dateAdded": "2026-08-26T16:56:02.125Z",
+      "dateModified": "2026-08-26T16:56:02.125Z"
+    },
+    {
       "location": "Mount Elbert",
       "date": "2026-03-11",
       "duration": "8 hours",
@@ -887,7 +911,7 @@
       "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2026-08-26T16:49:14.172Z",
+  "lastUpdated": "2026-08-26T16:56:02.470Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
