@@ -1,6 +1,21 @@
 {
   "trips": [
     {
+      "location": "The Lake of the Horns",
+      "date": "2026-08-08",
+      "duration": "2days",
+      "distance": "",
+      "elevation": "",
+      "members": [
+        "Abbey"
+      ],
+      "description": "Class 3 scramble up to the lake",
+      "photos": [],
+      "id": "1787765856190",
+      "dateAdded": "2026-08-26T17:37:36.190Z",
+      "dateModified": "2026-08-26T17:37:36.190Z"
+    },
+    {
       "location": "Pickle Jar Lakes",
       "date": "2026-07-26",
       "duration": "2days",
@@ -960,7 +975,7 @@
       "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2026-08-26T17:32:36.635Z",
+  "lastUpdated": "2026-08-26T17:37:36.334Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
