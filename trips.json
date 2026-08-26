@@ -1,6 +1,28 @@
 {
   "trips": [
     {
+      "location": "Grand Teton Grand Traverse",
+      "date": "2026-08-09",
+      "duration": "3 Days",
+      "distance": "20 miles",
+      "elevation": "12000 ft",
+      "members": [
+        "Granit",
+        "Aidan"
+      ],
+      "description": "3 day grand traverse of the whole Grand Teton Range \nSummits: Mt. Teewinot, Mt. Owen, Grand, Middle and South Teton and Nez Perce.",
+      "photos": [
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1787777241383-0-IMG_0360.jpg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1787777242903-0-IMG_0361.jpg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1787777244346-0-IMG_0362.jpg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1787777245336-0-IMG_0363.jpg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1787777246490-0-IMG_0364.jpg"
+      ],
+      "id": "1787777271576",
+      "dateAdded": "2026-08-26T20:47:51.576Z",
+      "dateModified": "2026-08-26T20:47:51.576Z"
+    },
+    {
       "location": "Rae Lake",
       "date": "2026-08-16",
       "duration": "2days",
@@ -990,7 +1012,7 @@
       "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2026-08-26T17:44:12.877Z",
+  "lastUpdated": "2026-08-26T20:47:51.958Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
