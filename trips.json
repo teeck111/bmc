@@ -1,6 +1,26 @@
 {
   "trips": [
     {
+      "location": "Rainier",
+      "date": "2026-08-26",
+      "duration": "2 days",
+      "distance": "14 miles",
+      "elevation": "9000",
+      "members": [
+        "Granit",
+        "Natalie"
+      ],
+      "description": "Ingraham Direct ski descent of Mt Rainier spent a night at camp muir.",
+      "photos": [
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1787755618825-0-IMG_4779.jpeg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1787755620910-0-IMG_4803.jpeg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1787755622987-0-IMG_4805.jpeg"
+      ],
+      "id": "1787755629594",
+      "dateAdded": "2026-08-26T14:47:09.594Z",
+      "dateModified": "2026-08-26T14:47:09.594Z"
+    },
+    {
       "location": "Dead Dog Couloir",
       "date": "2026-04-08",
       "duration": "8 Hours",
@@ -784,7 +804,7 @@
       "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2026-08-26T14:38:28.835Z",
+  "lastUpdated": "2026-08-26T14:47:09.776Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
