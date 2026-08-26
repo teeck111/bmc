@@ -1,6 +1,21 @@
 {
   "trips": [
     {
+      "location": "Mount Yamnuska",
+      "date": "2026-05-30",
+      "duration": "",
+      "distance": "",
+      "elevation": "",
+      "members": [
+        "Abbey"
+      ],
+      "description": "Class 3 scramble with chain and scree ski",
+      "photos": [],
+      "id": "1787764953897",
+      "dateAdded": "2026-08-26T17:22:33.897Z",
+      "dateModified": "2026-08-26T17:22:33.897Z"
+    },
+    {
       "location": "Mount Baker",
       "date": "2026-05-18",
       "duration": "3 days",
@@ -911,7 +926,7 @@
       "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2026-08-26T16:56:02.470Z",
+  "lastUpdated": "2026-08-26T17:22:34.266Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
