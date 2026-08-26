@@ -1,6 +1,21 @@
 {
   "trips": [
     {
+      "location": "Rae Lake",
+      "date": "2026-08-16",
+      "duration": "2days",
+      "distance": "20",
+      "elevation": "",
+      "members": [
+        "Abbey"
+      ],
+      "description": "Camped by Rae Lake, Scrambled to summit",
+      "photos": [],
+      "id": "1787766252541",
+      "dateAdded": "2026-08-26T17:44:12.541Z",
+      "dateModified": "2026-08-26T17:44:12.541Z"
+    },
+    {
       "location": "The Lake of the Horns",
       "date": "2026-08-08",
       "duration": "2days",
@@ -975,7 +990,7 @@
       "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2026-08-26T17:37:36.334Z",
+  "lastUpdated": "2026-08-26T17:44:12.877Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
