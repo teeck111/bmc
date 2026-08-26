@@ -1,6 +1,29 @@
 {
   "trips": [
     {
+      "location": "Mount Elbert",
+      "date": "2026-03-11",
+      "duration": "8 hours",
+      "distance": "10 miles",
+      "elevation": "4,500 ft",
+      "members": [
+        "Alex",
+        "Sam",
+        "Natalie"
+      ],
+      "description": "Skiied and summited Mt Elbert. Skied Box Creek chutes",
+      "photos": [
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1787762866270-0-IMG_3875.jpeg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1787762882282-0-IMG_3903.jpeg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1787762894453-0-IMG_7125.jpeg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1787762915163-0-IMG_0537.jpeg",
+        "https://raw.githubusercontent.com/teeck111/bmc/master/photos/1787762927566-0-IMG_7139.jpeg"
+      ],
+      "id": "1787762953790",
+      "dateAdded": "2026-08-26T16:49:13.790Z",
+      "dateModified": "2026-08-26T16:49:13.790Z"
+    },
+    {
       "location": "Castle and Conundrum",
       "date": "2026-04-24",
       "duration": "10 hours",
@@ -864,7 +887,7 @@
       "dateModified": "2025-09-25T15:12:34.249Z"
     }
   ],
-  "lastUpdated": "2026-08-26T15:52:31.069Z",
+  "lastUpdated": "2026-08-26T16:49:14.172Z",
   "version": "1.0",
   "description": "Big Mountain Club trip data"
 }
